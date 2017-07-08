@@ -1,0 +1,382 @@
+17:18:03  [main] 	Initializing Control Panel
+17:18:03  [main] 	Windows Version:  Home  64-bit
+17:18:03  [main] 	XAMPP Version: 5.6.21
+17:18:03  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+17:18:03  [main] 	You are not running with administrator rights! This will work for
+17:18:03  [main] 	most application stuff but whenever you do something with services
+17:18:03  [main] 	there will be a security dialogue or things will break! So think 
+17:18:03  [main] 	about running this application with administrator rights!
+17:18:03  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+17:18:04  [main] 	Checking for prerequisites
+17:18:04  [main] 	All prerequisites found
+17:18:04  [main] 	Initializing Modules
+17:18:04  [main] 	Starting Check-Timer
+17:18:04  [main] 	Control Panel Ready
+17:18:09  [Apache] 	Attempting to start Apache app...
+17:18:09  [Apache] 	Status change detected: running
+18:13:05  [Apache] 	Attempting to stop Apache (PID: 1340)
+18:13:05  [Apache] 	Attempting to stop Apache (PID: 9872)
+18:13:06  [Apache] 	Status change detected: stopped
+18:13:06  [Apache] 	Attempting to start Apache app...
+18:13:07  [Apache] 	Status change detected: running
+18:13:07  [Apache] 	Status change detected: stopped
+18:13:07  [Apache] 	Error: Apache shutdown unexpectedly.
+18:13:07  [Apache] 	This may be due to a blocked port, missing dependencies, 
+18:13:07  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+18:13:07  [Apache] 	Press the Logs button to view error logs and check
+18:13:07  [Apache] 	the Windows Event Viewer for more clues
+18:13:07  [Apache] 	If you need more help, copy and post this
+18:13:07  [Apache] 	entire log window on the forums
+18:13:18  [Apache] 	Attempting to start Apache app...
+18:13:22  [Apache] 	Attempting to start Apache app...
+18:13:22  [Apache] 	Status change detected: running
+18:13:23  [Apache] 	Status change detected: stopped
+18:13:23  [Apache] 	Error: Apache shutdown unexpectedly.
+18:13:23  [Apache] 	This may be due to a blocked port, missing dependencies, 
+18:13:23  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+18:13:23  [Apache] 	Press the Logs button to view error logs and check
+18:13:23  [Apache] 	the Windows Event Viewer for more clues
+18:13:23  [Apache] 	If you need more help, copy and post this
+18:13:23  [Apache] 	entire log window on the forums
+18:13:48  [Apache] 	Attempting to start Apache app...
+18:13:48  [Apache] 	Status change detected: running
+18:13:48  [Apache] 	Status change detected: stopped
+18:13:48  [Apache] 	Error: Apache shutdown unexpectedly.
+18:13:48  [Apache] 	This may be due to a blocked port, missing dependencies, 
+18:13:48  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+18:13:48  [Apache] 	Press the Logs button to view error logs and check
+18:13:48  [Apache] 	the Windows Event Viewer for more clues
+18:13:48  [Apache] 	If you need more help, copy and post this
+18:13:48  [Apache] 	entire log window on the forums
+18:14:24  [Apache] 	Attempting to start Apache app...
+18:14:24  [Apache] 	Status change detected: running
+18:18:15  [Apache] 	Attempting to stop Apache (PID: 10024)
+18:18:15  [Apache] 	Attempting to stop Apache (PID: 3784)
+18:18:16  [Apache] 	Status change detected: stopped
+18:18:33  [Apache] 	Attempting to start Apache app...
+18:18:33  [Apache] 	Status change detected: running
+18:18:33  [Apache] 	Status change detected: stopped
+18:18:33  [Apache] 	Error: Apache shutdown unexpectedly.
+18:18:33  [Apache] 	This may be due to a blocked port, missing dependencies, 
+18:18:33  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+18:18:34  [Apache] 	Press the Logs button to view error logs and check
+18:18:34  [Apache] 	the Windows Event Viewer for more clues
+18:18:34  [Apache] 	If you need more help, copy and post this
+18:18:34  [Apache] 	entire log window on the forums
+18:20:00  [Apache] 	Attempting to start Apache app...
+18:20:00  [Apache] 	Status change detected: running
+18:20:01  [Apache] 	Status change detected: stopped
+18:20:01  [Apache] 	Error: Apache shutdown unexpectedly.
+18:20:01  [Apache] 	This may be due to a blocked port, missing dependencies, 
+18:20:01  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+18:20:01  [Apache] 	Press the Logs button to view error logs and check
+18:20:01  [Apache] 	the Windows Event Viewer for more clues
+18:20:01  [Apache] 	If you need more help, copy and post this
+18:20:01  [Apache] 	entire log window on the forums
+18:23:24  [Apache] 	Attempting to start Apache app...
+18:23:24  [Apache] 	Status change detected: running
+18:23:24  [Apache] 	Status change detected: stopped
+18:23:24  [Apache] 	Error: Apache shutdown unexpectedly.
+18:23:24  [Apache] 	This may be due to a blocked port, missing dependencies, 
+18:23:24  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+18:23:24  [Apache] 	Press the Logs button to view error logs and check
+18:23:24  [Apache] 	the Windows Event Viewer for more clues
+18:23:24  [Apache] 	If you need more help, copy and post this
+18:23:24  [Apache] 	entire log window on the forums
+18:23:34  [Apache] 	Attempting to start Apache app...
+18:23:34  [Apache] 	Status change detected: running
+18:25:32  [Apache] 	Attempting to stop Apache (PID: 6260)
+18:25:32  [Apache] 	Attempting to stop Apache (PID: 1176)
+18:25:32  [Apache] 	Status change detected: stopped
+18:25:33  [Apache] 	Attempting to start Apache app...
+18:25:43  [Apache] 	Attempting to start Apache app...
+18:26:04  [Apache] 	Attempting to start Apache app...
+18:26:05  [Apache] 	Status change detected: running
+18:26:05  [Apache] 	Status change detected: stopped
+18:26:05  [Apache] 	Error: Apache shutdown unexpectedly.
+18:26:05  [Apache] 	This may be due to a blocked port, missing dependencies, 
+18:26:05  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+18:26:05  [Apache] 	Press the Logs button to view error logs and check
+18:26:05  [Apache] 	the Windows Event Viewer for more clues
+18:26:05  [Apache] 	If you need more help, copy and post this
+18:26:05  [Apache] 	entire log window on the forums
+18:26:08  [Apache] 	Attempting to start Apache app...
+18:27:00  [Apache] 	Attempting to start Apache app...
+18:27:00  [Apache] 	Status change detected: running
+18:27:01  [Apache] 	Status change detected: stopped
+18:27:01  [Apache] 	Error: Apache shutdown unexpectedly.
+18:27:01  [Apache] 	This may be due to a blocked port, missing dependencies, 
+18:27:01  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+18:27:01  [Apache] 	Press the Logs button to view error logs and check
+18:27:01  [Apache] 	the Windows Event Viewer for more clues
+18:27:01  [Apache] 	If you need more help, copy and post this
+18:27:01  [Apache] 	entire log window on the forums
+18:30:02  [Apache] 	Attempting to start Apache app...
+18:30:02  [Apache] 	Status change detected: running
+18:30:02  [Apache] 	Status change detected: stopped
+18:30:02  [Apache] 	Error: Apache shutdown unexpectedly.
+18:30:02  [Apache] 	This may be due to a blocked port, missing dependencies, 
+18:30:02  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+18:30:02  [Apache] 	Press the Logs button to view error logs and check
+18:30:02  [Apache] 	the Windows Event Viewer for more clues
+18:30:02  [Apache] 	If you need more help, copy and post this
+18:30:02  [Apache] 	entire log window on the forums
+18:30:31  [Apache] 	Attempting to start Apache app...
+18:30:31  [Apache] 	Status change detected: running
+18:31:36  [Apache] 	Attempting to stop Apache (PID: 11824)
+18:31:36  [Apache] 	Attempting to stop Apache (PID: 11476)
+18:31:36  [Apache] 	Status change detected: stopped
+18:31:37  [Apache] 	Problem detected!
+18:31:37  [Apache] 	Port 80 in use by "Unable to get info" with PID 11824!
+18:31:37  [Apache] 	Apache WILL NOT start without the configured ports free!
+18:31:37  [Apache] 	You need to uninstall/disable/reconfigure the blocking application
+18:31:37  [Apache] 	or reconfigure Apache and the Control Panel to listen on a different port
+18:31:37  [Apache] 	Attempting to start Apache app...
+18:31:37  [Apache] 	Status change detected: running
+18:33:35  [Apache] 	Attempting to stop Apache (PID: 5392)
+18:33:35  [Apache] 	Attempting to stop Apache (PID: 1396)
+18:33:35  [Apache] 	Status change detected: stopped
+18:33:36  [Apache] 	Attempting to start Apache app...
+18:33:36  [Apache] 	Status change detected: running
+18:35:01  [Apache] 	Attempting to stop Apache (PID: 6720)
+18:35:01  [Apache] 	Attempting to stop Apache (PID: 9080)
+18:35:01  [Apache] 	Status change detected: stopped
+18:39:43  [Apache] 	Attempting to start Apache app...
+18:39:43  [Apache] 	Status change detected: running
+18:40:34  [Apache] 	Attempting to stop Apache (PID: 10200)
+18:40:34  [Apache] 	Attempting to stop Apache (PID: 8228)
+18:40:34  [Apache] 	Status change detected: stopped
+18:40:35  [Apache] 	Attempting to start Apache app...
+18:40:35  [Apache] 	Status change detected: running
+18:41:16  [Apache] 	Attempting to stop Apache (PID: 12004)
+18:41:16  [Apache] 	Attempting to stop Apache (PID: 11968)
+18:41:17  [Apache] 	Status change detected: stopped
+18:41:17  [Apache] 	Attempting to start Apache app...
+18:41:17  [Apache] 	Status change detected: running
+18:46:17  [Apache] 	Attempting to stop Apache (PID: 9416)
+18:46:17  [Apache] 	Attempting to stop Apache (PID: 2756)
+18:46:17  [Apache] 	Status change detected: stopped
+18:46:18  [Apache] 	Attempting to start Apache app...
+18:46:18  [Apache] 	Status change detected: running
+19:12:04  [main] 	Deinitializing Modules
+19:12:04  [main] 	Deinitializing Control Panel
+
+14:02:39  [main] 	Initializing Control Panel
+14:02:39  [main] 	Windows Version:  Home  64-bit
+14:02:39  [main] 	XAMPP Version: 5.6.21
+14:02:39  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+14:02:39  [main] 	You are not running with administrator rights! This will work for
+14:02:39  [main] 	most application stuff but whenever you do something with services
+14:02:39  [main] 	there will be a security dialogue or things will break! So think 
+14:02:39  [main] 	about running this application with administrator rights!
+14:02:39  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+14:02:39  [main] 	Checking for prerequisites
+14:02:39  [main] 	All prerequisites found
+14:02:39  [main] 	Initializing Modules
+14:02:39  [main] 	Starting Check-Timer
+14:02:39  [main] 	Control Panel Ready
+14:02:41  [Apache] 	Attempting to start Apache app...
+14:02:41  [Apache] 	Status change detected: running
+17:10:33  [main] 	Deinitializing Modules
+17:10:33  [main] 	Deinitializing Control Panel
+
+21:14:22  [main] 	Initializing Control Panel
+21:14:22  [main] 	Windows Version:  Home  64-bit
+21:14:22  [main] 	XAMPP Version: 5.6.21
+21:14:22  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+21:14:22  [main] 	You are not running with administrator rights! This will work for
+21:14:22  [main] 	most application stuff but whenever you do something with services
+21:14:22  [main] 	there will be a security dialogue or things will break! So think 
+21:14:22  [main] 	about running this application with administrator rights!
+21:14:22  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+21:14:22  [main] 	Checking for prerequisites
+21:14:24  [main] 	All prerequisites found
+21:14:24  [main] 	Initializing Modules
+21:14:24  [main] 	Starting Check-Timer
+21:14:24  [main] 	Control Panel Ready
+21:14:25  [Apache] 	Attempting to start Apache app...
+21:14:25  [Apache] 	Status change detected: running
+21:20:23  [main] 	Deinitializing Modules
+21:20:23  [main] 	Deinitializing Control Panel
+
+12:38:00  [main] 	Initializing Control Panel
+12:38:00  [main] 	Windows Version:  Home  64-bit
+12:38:00  [main] 	XAMPP Version: 5.6.21
+12:38:00  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+12:38:00  [main] 	You are not running with administrator rights! This will work for
+12:38:00  [main] 	most application stuff but whenever you do something with services
+12:38:00  [main] 	there will be a security dialogue or things will break! So think 
+12:38:00  [main] 	about running this application with administrator rights!
+12:38:00  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+12:38:00  [main] 	Checking for prerequisites
+12:38:00  [main] 	All prerequisites found
+12:38:00  [main] 	Initializing Modules
+12:38:00  [main] 	Starting Check-Timer
+12:38:00  [main] 	Control Panel Ready
+12:38:02  [Apache] 	Attempting to start Apache app...
+12:38:02  [Apache] 	Status change detected: running
+16:20:24  [main] 	Deinitializing Modules
+16:20:24  [main] 	Deinitializing Control Panel
+
+20:30:57  [main] 	Initializing Control Panel
+20:30:57  [main] 	Windows Version:  Home  64-bit
+20:30:57  [main] 	XAMPP Version: 5.6.21
+20:30:57  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+20:30:57  [main] 	You are not running with administrator rights! This will work for
+20:30:57  [main] 	most application stuff but whenever you do something with services
+20:30:57  [main] 	there will be a security dialogue or things will break! So think 
+20:30:57  [main] 	about running this application with administrator rights!
+20:30:57  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+20:30:57  [main] 	Checking for prerequisites
+20:30:57  [main] 	All prerequisites found
+20:30:57  [main] 	Initializing Modules
+20:30:57  [main] 	Starting Check-Timer
+20:30:57  [main] 	Control Panel Ready
+20:30:59  [Apache] 	Attempting to start Apache app...
+20:31:00  [Apache] 	Status change detected: running
+21:28:33  [main] 	Deinitializing Modules
+21:28:33  [main] 	Deinitializing Control Panel
+
+14:13:31  [main] 	Initializing Control Panel
+14:13:31  [main] 	Windows Version:  Home  64-bit
+14:13:31  [main] 	XAMPP Version: 5.6.21
+14:13:31  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+14:13:31  [main] 	You are not running with administrator rights! This will work for
+14:13:31  [main] 	most application stuff but whenever you do something with services
+14:13:31  [main] 	there will be a security dialogue or things will break! So think 
+14:13:31  [main] 	about running this application with administrator rights!
+14:13:31  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+14:13:31  [main] 	Checking for prerequisites
+14:13:34  [main] 	All prerequisites found
+14:13:34  [main] 	Initializing Modules
+14:13:34  [main] 	Starting Check-Timer
+14:13:34  [main] 	Control Panel Ready
+14:13:37  [Apache] 	Attempting to start Apache app...
+14:13:37  [Apache] 	Status change detected: running
+19:35:49  [main] 	Deinitializing Modules
+19:35:49  [main] 	Deinitializing Control Panel
+
+13:03:36  [main] 	Initializing Control Panel
+13:03:36  [main] 	Windows Version:  Home  64-bit
+13:03:36  [main] 	XAMPP Version: 5.6.21
+13:03:36  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+13:03:36  [main] 	You are not running with administrator rights! This will work for
+13:03:36  [main] 	most application stuff but whenever you do something with services
+13:03:36  [main] 	there will be a security dialogue or things will break! So think 
+13:03:36  [main] 	about running this application with administrator rights!
+13:03:36  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+13:03:36  [main] 	Checking for prerequisites
+13:03:38  [main] 	All prerequisites found
+13:03:38  [main] 	Initializing Modules
+13:03:38  [main] 	Starting Check-Timer
+13:03:38  [main] 	Control Panel Ready
+13:03:40  [Apache] 	Attempting to start Apache app...
+13:03:40  [Apache] 	Status change detected: running
+19:33:22  [main] 	Deinitializing Modules
+19:33:22  [main] 	Deinitializing Control Panel
+
+13:26:32  [main] 	Initializing Control Panel
+13:26:32  [main] 	Windows Version:  Home  64-bit
+13:26:32  [main] 	XAMPP Version: 5.6.21
+13:26:32  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+13:26:32  [main] 	You are not running with administrator rights! This will work for
+13:26:32  [main] 	most application stuff but whenever you do something with services
+13:26:32  [main] 	there will be a security dialogue or things will break! So think 
+13:26:32  [main] 	about running this application with administrator rights!
+13:26:32  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+13:26:32  [main] 	Checking for prerequisites
+13:26:35  [main] 	All prerequisites found
+13:26:35  [main] 	Initializing Modules
+13:26:35  [main] 	Starting Check-Timer
+13:26:35  [main] 	Control Panel Ready
+13:26:37  [Apache] 	Attempting to start Apache app...
+13:26:37  [Apache] 	Status change detected: running
+17:21:35  [main] 	Deinitializing Modules
+17:21:35  [main] 	Deinitializing Control Panel
+
+12:28:29  [main] 	Initializing Control Panel
+12:28:29  [main] 	Windows Version:  Home  64-bit
+12:28:29  [main] 	XAMPP Version: 5.6.21
+12:28:29  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+12:28:29  [main] 	You are not running with administrator rights! This will work for
+12:28:29  [main] 	most application stuff but whenever you do something with services
+12:28:29  [main] 	there will be a security dialogue or things will break! So think 
+12:28:29  [main] 	about running this application with administrator rights!
+12:28:29  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+12:28:29  [main] 	Checking for prerequisites
+12:28:31  [main] 	All prerequisites found
+12:28:31  [main] 	Initializing Modules
+12:28:31  [main] 	Starting Check-Timer
+12:28:31  [main] 	Control Panel Ready
+12:28:33  [Apache] 	Attempting to start Apache app...
+12:28:33  [Apache] 	Status change detected: running
+16:08:38  [main] 	Deinitializing Modules
+16:08:38  [main] 	Deinitializing Control Panel
+
+12:38:08  [main] 	Initializing Control Panel
+12:38:08  [main] 	Windows Version:  Home  64-bit
+12:38:08  [main] 	XAMPP Version: 5.6.21
+12:38:08  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+12:38:08  [main] 	You are not running with administrator rights! This will work for
+12:38:08  [main] 	most application stuff but whenever you do something with services
+12:38:08  [main] 	there will be a security dialogue or things will break! So think 
+12:38:08  [main] 	about running this application with administrator rights!
+12:38:08  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+12:38:08  [main] 	Checking for prerequisites
+12:38:11  [main] 	All prerequisites found
+12:38:11  [main] 	Initializing Modules
+12:38:11  [main] 	Starting Check-Timer
+12:38:11  [main] 	Control Panel Ready
+12:38:12  [Apache] 	Attempting to start Apache app...
+12:38:13  [Apache] 	Status change detected: running
+14:22:56  [main] 	Deinitializing Modules
+14:22:56  [main] 	Deinitializing Control Panel
+
+12:07:27  [main] 	Initializing Control Panel
+12:07:27  [main] 	Windows Version:  Home  64-bit
+12:07:27  [main] 	XAMPP Version: 5.6.21
+12:07:27  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+12:07:27  [main] 	You are not running with administrator rights! This will work for
+12:07:27  [main] 	most application stuff but whenever you do something with services
+12:07:27  [main] 	there will be a security dialogue or things will break! So think 
+12:07:27  [main] 	about running this application with administrator rights!
+12:07:27  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+12:07:27  [main] 	Checking for prerequisites
+12:07:28  [main] 	All prerequisites found
+12:07:28  [main] 	Initializing Modules
+12:07:28  [main] 	Starting Check-Timer
+12:07:28  [main] 	Control Panel Ready
+12:07:30  [Apache] 	Attempting to start Apache app...
+12:07:30  [Apache] 	Status change detected: running
+16:41:30  [Apache] 	Attempting to stop Apache (PID: 7336)
+16:41:30  [Apache] 	Attempting to stop Apache (PID: 4072)
+16:41:30  [Apache] 	Status change detected: stopped
+16:41:31  [Apache] 	Attempting to start Apache app...
+16:41:31  [Apache] 	Status change detected: running
+17:01:48  [main] 	Deinitializing Modules
+17:01:48  [main] 	Deinitializing Control Panel
+
+16:26:36  [main] 	Initializing Control Panel
+16:26:36  [main] 	Windows Version:  Home  64-bit
+16:26:36  [main] 	XAMPP Version: 5.6.21
+16:26:36  [main] 	Control Panel Version: 3.2.2  [ Compiled: Nov 12th 2015 ]
+16:26:36  [main] 	You are not running with administrator rights! This will work for
+16:26:36  [main] 	most application stuff but whenever you do something with services
+16:26:36  [main] 	there will be a security dialogue or things will break! So think 
+16:26:36  [main] 	about running this application with administrator rights!
+16:26:36  [main] 	XAMPP Installation Directory: "f:\php\xampp\"
+16:26:36  [main] 	Checking for prerequisites
+16:26:39  [main] 	All prerequisites found
+16:26:39  [main] 	Initializing Modules
+16:26:39  [main] 	Starting Check-Timer
+16:26:39  [main] 	Control Panel Ready
+16:26:41  [Apache] 	Attempting to start Apache app...
+16:26:41  [Apache] 	Status change detected: running
+16:50:58  [Apache] 	Attempting to stop Apache (PID: 2312)
+16:50:58  [Apache] 	Attempting to stop Apache (PID: 9364)
+16:50:58  [Apache] 	Status change detected: stopped
+16:50:59  [Apache] 	Attempting to start Apache app...
+16:50:59  [Apache] 	Status change detected: running
+17:02:16  [main] 	Deinitializing Modules
+17:02:16  [main] 	Deinitializing Control Panel
+
