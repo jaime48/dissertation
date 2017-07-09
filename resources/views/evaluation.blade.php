@@ -15,10 +15,10 @@
 <body bgcolor=white>
 <!-----------------------navigation--------------------------->
 @include('navi')
-<div style="min-height:1000px">
+<div style="min-height:1300px">
 <div class="col-md-9 col-md-offset-2" >
 <!------------------------------------------------------------>
-<table id=title bgcolor="#eeeeee" border=1 cellpadding=2 cellspacing=0><tr><th>
+<table id=title bgcolor="#eeeeee" border=1><tr><th>
             <font size=+2>Questionnaire for User Interface Satisfaction</font>
         </th></tr>
     <tr><td>
@@ -43,53 +43,59 @@
         </td></tr>
 </table>
     <div class="col-md-12 col-md-offset-1" style="align-self: center">
-    <p>
-    Please rate your satisfaction with the system.
-<ul compact>
-    <li>Try to respond to all the items.
 
+    Please rate your satisfaction with the system.
+<ul>
+    <li>Try to respond to all the items.</li>
 </ul>
 <form method='post' action="questionnaireSubmit">
-    <a name=top></a>
     {{csrf_field()}}
-    <input type=hidden name="HTTP_REFERER" value="http://mail.163.com/js6/read/readhtml.jsp?mid=201:1tbiyRPwZlQG7fDZ2AAAsC&amp;font=15&amp;color=064977">
-    <input type=hidden name="NA" value="NA">
-    <input type=hidden name="NAval" value="-1">
-    <input type=hidden name="commlines" value="1">
-    <input type=hidden name="form" value="quis">
-    <input type=hidden name="help" value="Please rate your satisfaction with the system.">
-    <input type=hidden name="highlab" value="good">
-    <input type=hidden name="highval" value="9">
-    <input type=hidden name="language" value="en">
-    <input type=hidden name="lowlab" value="bad">
-    <input type=hidden name="lowval" value="0">
-    <input type=hidden name="negative" value="3">
-    <input type=hidden name="object" value="System">
-    <input type=hidden name="positive" value="3">
-    <input type=hidden name="ref" value="Chin,&amp;nbsp;J.P., Diehl,&amp;nbsp;V.A., Norman,&amp;nbsp;K.L. (1988)
-&lt;i&gt;Development of an Instrument Measuring User Satisfaction
-of the Human-Computer Interface.&lt;/i&gt;
-&lt;b&gt;ACM CHI'88 Proceedings&lt;/b&gt;,
-213-218.
-&amp;copy;1988&amp;nbsp;ACM.
-&lt;a href='http://hcibib.org/search:quest==C.CHI.88.213'&gt;[Abstract]&lt;/a&gt;
-Copying without fee is permitted provided that the copies are not made or distributed
-for direct commercial advantage, and credit to the source is given.
-&amp;copy;1986-1998 University of Maryland.
-This display is for educational uses only.
-&lt;b&gt;Commercial use requires a license from the Office of Technology Commercialization&lt;/b&gt;:
-(301) 403-2711
-&lt;a href=mailto:otc@@umail.umd.edu&gt;otc@umail.umd.edu&lt;/a&gt;.
-&lt;a href=http://www.cs.umd.edu/hcil/quis/&gt;[QUIS Home Page]&lt;/a&gt;
-">
-    <input type=hidden name="sender" value="QUIS 5.0">
-    <input type=hidden name="the" value="The">
-    <input type=hidden name="this" value="This">
-    <input type=hidden name="title" value="Questionnaire for User Interface Satisfaction">
+    <table>
+        <tr>
+            <td>What's your age group:
+                <select name="age">
+                    <option value='' selected="selected" disabled="disabled">Please select</option>
+                    <option value='18'><18</option>
+                    <option value='30'>18-30</option>
+                    <option value='50'>30-50</option>
+                    <option value='80'>>50</option>
+                </select>
+            </td>
 
+        </tr><br><br>
+        <tr>
+            <td width="50%">How long have you been using this website:
+                <select name="use">
+                    <option value='' selected="selected" disabled="disabled">Please select</option>
+                    <option value='1'>< 1 month</option>
+                    <option value='12'>1 month to one year</option>
+                    <option value='36'>one year to three years</option>
+                    <option value='48'>> three years</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">have you used a similar software before:
+            Yes<input type='radio' id='q1_0' name='used_before' value="1" >&nbsp;&nbsp;&nbsp;
+            No<input type='radio' id='q1_1' name='used_before' value="0">
+            </td>
+        </tr>
+        <tr>
+            <td>Please rate yourself:
+                <select name="rate_yourself">
+                    <option value='' selected="selected" disabled="disabled">Please select</option>
+                    <option value='0'>beginner</option>
+                    <option value='1'>knowledgeable</option>
+                    <option value='2'>expert</option>
 
-    <p>
-    <table id=ratings cellspacing=1 cellpadding=2 border=0>
+                </select>
+            </td>
+
+        </tr><br>
+
+    </table>
+    <table id=ratings  border=0>
+
         <tr bgcolor="#dddddd" valign=middle> <td colspan=2><b>OVERALL REACTION TO THE SOFTWARE</b></td>
             <td>&nbsp;</td><th scope="col">0</th>
             <th scope="col">1</th>
@@ -571,9 +577,41 @@ This display is for educational uses only.
             <th scope="col">8</th>
             <th scope="col">9</th>
             <th scope="col"></th>
-        </tr></table>
+        </tr>
+
+            <tr>
+                <td></td>
+                <td>what do you like or dislike in this software?
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea name='like_or_dislike'></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>Would you like to suggest an improvement?
+
+                </td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td><textarea name='suggestion'></textarea>
+                </td>
+
+            </tr>
+
+
+
+
+    </table>
 
     <br>
+
     <input type=submit name=submit title="Mail Data" value="Submit">
 
     <a href=#top>Top of Form</a> |

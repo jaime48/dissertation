@@ -22,6 +22,13 @@ class evaluationController extends Controller
         $data['learning']            = sprintf ("%.2f",($request->q17[0]+$request->q18[0]+$request->q19[0]+$request->q20[0]+$request->q21[0]+$request->q22[0])/6);
         $data['system_capabilities'] = sprintf ("%.2f",($request->q23[0]+$request->q24[0]+$request->q25[0]+$request->q26[0]+$request->q27[0])/5);
         $data['user_id']             = $request->user()->id;
+        $data['age']                 = $request->age;
+        $data['use']                 = $request->use;
+        $data['used_before']         = $request->used_before;
+        $data['rate_yourself']       = $request->rate_yourself;
+        $data['like_or_dislike']     = $request->like_or_dislike;
+        $data['suggestion']          = $request->suggestion;
+
         $data->save();
 
         return view('home');
@@ -32,7 +39,6 @@ class evaluationController extends Controller
      * get average statistics for display
      */
     public function averageStats() {
-
         $avgData = \DB::table('evaluation')
             ->selectRaw(' count(*) as num, sum(overall)/count(*) as overall, sum(screen)/count(*) as screen, sum(terminology)/count(*) as terminology, sum(learning)/count(*) as learning ,sum(system_capabilities)/count(*) as system_capabilities')
             ->first();
