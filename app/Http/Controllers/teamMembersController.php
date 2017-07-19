@@ -12,9 +12,9 @@ class teamMembersController extends Controller
     public function getMembersInfo(Request $request){
         $managerInfo = $request->user();
         $leagueInfo = \App\league::where('manager_id','=',$managerInfo->id)->first();
-        $membersInfo = teamMembers::with(['team' =>function($query) use ($leagueInfo,$request) {
-            $query->where('league_id','=',$leagueInfo->id);
-        }])->with('user')->get();
+        $teamsInfo = \App\teams::where('league_id','=',$leagueInfo->id)->get(['id'])->toArray();
+        $class = new \App\teamMembers();
+        $membersInfo = $class::whereIn('team_id',$teamsInfo)->with('team')->get();
         foreach($membersInfo as &$info){
             $info->teamInfo = $info->team->name;
         }

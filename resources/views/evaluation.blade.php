@@ -65,7 +65,7 @@
         </tr><br><br>
         <tr>
             <td width="50%">How long have you been using this website:
-                <select name="use">
+                <select name="use_time">
                     <option value='' selected="selected" disabled="disabled">Please select</option>
                     <option value='1'>< 1 month</option>
                     <option value='12'>1 month to one year</option>

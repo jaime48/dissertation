@@ -37,15 +37,15 @@ function refreshNoti() {
             $('#badge-notify').remove();
         }else{
             $('#badge-notify').remove();
-            $('#notiIcon').append(' <span class=\'badge\' id="badge-notify">'+msg.countNotRead+'</span>');
+            $('#notiIcon').append(' <span class=\'badge\' id="badge-notify" style="align-content:left">'+msg.countNotRead+'</span>');
 
         }
-        $('.notifications-wrapper').empty();
+        $('#notiWrapper').empty();
         $.each(msg.notifications,function(key,value){
             if(value.is_read==0){
-                $('.notifications-wrapper').append('<a class="content" href="javascript:setRead('+value.id+')"><div class="notification-item"><h4 class="item-title">'+value.title+' ·  '+value.created_at+' </h4> <p class="item-info">'+value.content+'</p> </div> </a>');
+                $('#notiWrapper').append('<a class="content" href="javascript:setRead('+value.id+')"><div class="notification-item"><h4 class="item-title">'+value.title+' ·  '+value.created_at+' </h4> <p class="item-info">'+value.content+'</p> </div> </a>');
             }else{
-                $('.notifications-wrapper').append('<a class="content" href="javascript:setRead('+value.id+')"><div class="notification-item-read"><h4 class="item-title">'+value.title+' ·  '+value.created_at+' </h4> <p class="item-info">'+value.content+'</p> </div> </a>');
+                $('#notiWrapper').append('<a class="content" href="javascript:setRead('+value.id+')"><div class="notification-item-read"><h4 class="item-title">'+value.title+' ·  '+value.created_at+' </h4> <p class="item-info">'+value.content+'</p> </div> </a>');
             }
 
         })

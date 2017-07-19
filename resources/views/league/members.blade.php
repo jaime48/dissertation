@@ -2,7 +2,6 @@
 <body>
 @include('navi');
 @include('league.sidebar');
-<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('css/responsiveTable/dataTable.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('css/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
@@ -50,7 +49,7 @@
 @include('footer')
 <style>
     .mainContent1 {
-        min-height: 500px;
+        /*min-height: 500px;*/
         margin-left:300px;
         margin-top:60px;
     }

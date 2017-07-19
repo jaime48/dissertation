@@ -22,6 +22,9 @@ class multiAuth
         if($request->route()->getName() == 'league' && $request->user()->user_type != 4){
             return redirect()->route('error',array('error' => 'You don\'t have authority to access this section, only League Manager can'));
         }
+        if($request->route()->getName() == 'team.team' && $request->user()->user_type != 3){
+            return redirect()->route('error',array('error' => 'You don\'t have authority to access this section, only Team Manager can'));
+        }
 
         return $next($request);
     }

@@ -1,9 +1,6 @@
 <!-------------------------------------------------------->
 <script src="{{asset('js/jquery.js')}}"></script>
-{{--<script src="{{asset('js/bootstrap.js')}}"></script>--}}
-        <!-- Bootstrap Core CSS -->
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-<!-- Custom CSS -->
 <link href="{{asset('css/modern-business.css')}}" rel="stylesheet">
 <!-- Custom Fonts -->
 
@@ -86,11 +83,11 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-check"></i> My League</h4>
+                    <h4><i class="fa fa-futbol-o"></i> My League</h4>
                 </div>
                 <div class="panel-body">
                     <p> The league you own:<br>
-                        As a league manager you could create or edit the info of your team.
+                        As a league manager you could create or edit the info of your league.
                         View all the teams and members registered in the league.<br>
                         Timetable for matches and personal agenda
                         </p>
@@ -101,11 +98,13 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-gift"></i> Function 2</h4>
+                    <h4><i class="fa fa-fw fa-gift"></i> My Team</h4>
                 </div>
                 <div class="panel-body">
-                    <p>Description<br><br><br><br><br></p>
-                    <a href="#" class="btn btn-default">Learn More</a>
+                    <p>The team you own:<br> As a team manager you could create or edit the info of your team.
+                        View your the team and members registered in the team.<br>
+                        Timetable for matches and personal agenda<br></p>
+                    <a href="team.team" class="btn btn-default">Learn More</a>
                 </div>
             </div>
         </div>

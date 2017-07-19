@@ -4,6 +4,7 @@
 @include('league.sidebar');
 {{--<link href="{{asset('css/font-awesome/css/font-awesome.css')}}" rel="stylesheet">--}}
 
+<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
 {{--<!-- Latest compiled and minified CSS -->--}}
 {{--<link rel="stylesheet" href="{{asset('css/chosen.min.css')}}">--}}

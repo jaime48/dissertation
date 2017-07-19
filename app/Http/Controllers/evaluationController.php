@@ -23,7 +23,7 @@ class evaluationController extends Controller
         $data['system_capabilities'] = sprintf ("%.2f",($request->q23[0]+$request->q24[0]+$request->q25[0]+$request->q26[0]+$request->q27[0])/5);
         $data['user_id']             = $request->user()->id;
         $data['age']                 = $request->age;
-        $data['use']                 = $request->use;
+        $data['use_time']                 = $request->use;
         $data['used_before']         = $request->used_before;
         $data['rate_yourself']       = $request->rate_yourself;
         $data['like_or_dislike']     = $request->like_or_dislike;
@@ -47,7 +47,25 @@ class evaluationController extends Controller
         $avgData->terminology         = round($avgData->terminology,2);
         $avgData->learning            = round($avgData->learning,2);
         $avgData->system_capabilities = round($avgData->system_capabilities,2);
-        return view('about')->with(['avgData' => $avgData]);
+        $avgData = (array)$avgData;
+        $dataAge = \DB::table('evaluation')
+            ->selectRaw('count(*) as num, age')
+            ->groupBy('age')
+            ->get();
+        $avgData['dateAge'] = \DB::table('evaluation')->selectRaw('count(*) as num, age')->groupBy('age')->get()->toArray();
+        $avgData['use_time'] = \DB::table('evaluation')->selectRaw('count(*) as num, use_time')->groupBy('use_time')->get()->toArray();
+        $avgData['used_before'] = \DB::table('evaluation')->selectRaw('count(*) as num, used_before')->groupBy('used_before')->get()->toArray();
+        $avgData['rate_yourself'] = \DB::table('evaluation')->selectRaw('count(*) as num, rate_yourself')->groupBy('rate_yourself')->get()->toArray();
+        foreach((array)$avgData['dateAge'] as $val){
+
+        }
+        for($i=0;$i<4;$i++){
+            !isset($avgData['dateAge'][$i])? $avgData['dateAge'][$i]=(object)['num'=>0]:'';
+            !isset($avgData['use_time'][$i])? $avgData['use_time'][$i]=(object)['num'=>0]:'';
+            !isset($avgData['used_before'][$i])? $avgData['used_before'][$i]=(object)['num'=>0]:'';
+            !isset($avgData['rate_yourself'][$i])? $avgData['rate_yourself'][$i]=(object)['num'=>0]:'';
+        }
+        return view('about')->with(['avgData' => (object)$avgData]);
     }
 
     /**

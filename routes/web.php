@@ -168,8 +168,32 @@ Route::any('getNotifications','notificationsController@getNotifications');
 Route::any('setRead', 'notificationsController@setRead');
 
 
+/*****************************team***************************/
 
+Route::any('team.team', 'teamsController@getTeamInfo')->name('team.team')->middleware('multiAuth');
 
+Route::any('team.createTeam', function(){
+    return view('team.createTeam');
+});
+
+Route::any('/exportTeamInfo{infoId}',[
+    'as'=>'exportTeamInfo',
+    'uses'=>'teamsController@exportTeamInfo'
+]);
+
+Route::any('team.members','teamsController@getMembersInfo')->name('team.members');
+
+Route::post('team.createTeamSubmit','teamsController@createTeam');
+
+Route::any('team.getMemberInfo','teamsController@getMemberInfo');
+
+Route::post('team.editMemberInfo','teamsController@editMemberInfo');
+
+Route::any('team.deleteSelectedMember','teamsController@deleteSelectedMember');
+
+Route::any('team.getSelectMember','teamsController@getSelectMember');
+
+Route::any('team.addMembers','teamsController@addNewMembers');
 
 Route::any('/test1',function(){
 

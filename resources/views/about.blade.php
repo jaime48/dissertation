@@ -103,15 +103,29 @@
         <div class="col-lg-6"><br><br>
             <strong>Do you want to share your opinion on our website? <br>Take two minutes of your precious time to do the questionnaire please. <br>Thank you.</strong>
         </div>
-
-        <!-- Footer -->
-
-
     </div>
-    <!-- /.container -->
+    <div class="row">
+        <div class="col-lg-6">
+            <br><br>
+            <canvas id="age_group" style="height:20vh; width:20vw"></canvas>
+        </div>
+        <div class="col-lg-6"><br><br>
+            <canvas id="use_time" style="height:20vh; width:20vw"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <br><br>
+            <canvas id="used_before" style="height:20vh; width:20vw"></canvas>
+        </div>
+        <div class="col-lg-6"><br><br>
+            <canvas id="rate_yourself" style="height:20vh; width:20vw"></canvas>
+
+        </div>
+    </div>
 </div>
 
-
+<br><br>
 </body>
 
 </html>
@@ -152,6 +166,88 @@
                     ticks: { min: 0, beginAtZero: true, stepSize: 2, max: 10 }
                 }],
 
+            }
+        }
+    });
+
+
+    new Chart(document.getElementById("age_group"), {
+        type: 'pie',
+        data: {
+            labels: ["0-18", "18-30", "30-50", ">50"],
+            datasets: [{
+                label: "age group (years old)",
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9"],
+                data: [{{$avgData->dateAge[0]->num}},{{$avgData->dateAge[1]->num}},{{$avgData->dateAge[2]->num}},{{$avgData->dateAge[3]->num}}]
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'age groups for users on ProSports'
+            }
+        }
+    });
+
+    new Chart(document.getElementById("use_time"), {
+        type: 'pie',
+        data: {
+            labels: [" < 1 month", "1 month to 1 year", "1 to 3 years", "> 3 years"],
+            datasets: [
+                {
+                    label: "lengthcof time",
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                    data: [{{$avgData->use_time[0]->num}},{{$avgData->use_time[1]->num}},{{$avgData->use_time[2]->num}},{{$avgData->use_time[3]->num}}]
+                }
+            ]
+        },
+        options: {
+
+            title: {
+                display: true,
+                text: 'Time of using this website'
+            },
+
+        }
+    });
+
+
+    new Chart(document.getElementById("used_before"), {
+        type: 'doughnut',
+        data: {
+            labels: ["used before", "not used before"],
+            datasets: [
+                {
+                    label: "Population (millions)",
+                    backgroundColor: ["#3e95cd", "#8e5ea2"],
+                    data: [{{$avgData->used_before[1]->num}},{{$avgData->used_before[0]->num}}]
+                }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'used or not used similar website before'
+            }
+        }
+    });
+
+    new Chart(document.getElementById("rate_yourself"), {
+        type: 'polarArea',
+        data: {
+            labels: ["beginner", "knowledgeable", "expert"],
+            datasets: [
+                {
+                    label: "level of specialty",
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                    data: [{{$avgData->rate_yourself[0]->num}},{{$avgData->rate_yourself[1]->num}},{{$avgData->rate_yourself[2]->num}}]
+                }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'level of specialty'
             }
         }
     });

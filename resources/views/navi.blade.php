@@ -2,6 +2,7 @@
 <!------------------------------->
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/navi.js')}}"></script>
+<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 <!--open this will disable navbar-collapse, problem unsolved--->
 {{--<script src="{{asset('js/bootstrap.js')}}"></script>--}}
 <!------------------------------->
@@ -30,16 +31,35 @@
                 <li>
                     <a href="#" id="questionnaire" onclick="questionnaire()">questionnaire</a>
                 </li>
+
                 <li>
-                    <button class="btn btn-default btn-lg btn-link dropdown-toggle" data-toggle="dropdown" style="font-size:20px;margin-top:8px;margin-left:20px" id="notiButton">
+                    <button class="btn btn-default btn-lg btn-link dropdown-toggle" data-toggle="dropdown" style="font-size:20px;margin-top:8px;margin-left:20px" id="">
                         <span class="glyphicon glyphicon-comment"></span>
+                    </button><span id=""></span>
+                    <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel" id="" style="width:400px">
+
+                        <div class="notification-heading"><h4 class="menu-title">Notifications</h4><a href='#' onclick="setAllRead()"><h4 class="menu-title pull-right">Set all as read<i class="glyphicon glyphicon-circle-arrow-right"></i></h4></a>
+                        </div>
+                        <li class="divider"></li>
+                        <div class="">
+
+
+                        </div>
+                        <li class="divider"></li>
+                        <div class="notification-footer"><h4 class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></h4></div>
+                    </ul>
+
+                </li>
+                <li>
+                    <button class="btn btn-default btn-lg btn-link dropdown-toggle" data-toggle="dropdown" style="font-size:20px;margin-top:10px;margin-left:20px" id="notiButton">
+                        <span class="glyphicon glyphicon-bell"></span>
                     </button><span id="notiIcon"></span>
                     <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel" id="notiDropDown" style="width:400px">
 
                         <div class="notification-heading"><h4 class="menu-title">Notifications</h4><a href='#' onclick="setAllRead()"><h4 class="menu-title pull-right">Set all as read<i class="glyphicon glyphicon-circle-arrow-right"></i></h4></a>
                         </div>
                         <li class="divider"></li>
-                        <div class="notifications-wrapper">
+                        <div class="notifications-wrapper" id='notiWrapper'>
 
 
                         </div>
@@ -122,9 +142,9 @@
         position:relative;
         top: -0px;
         left: -25px;
-        width:18px;
-        height:16px;
-        font-size: 12px;
+        width:17px;
+        height:17px;
+        font-size: 11px;
     }
     /* CSS used here will be applied after bootstrap.css */
 
@@ -137,7 +157,7 @@
 
     .glyphicon-bell {
 
-        font-size:1.5rem;
+        font-size:1.7rem;
     }
 
     .notifications {
