@@ -1,5 +1,6 @@
 <link href="{{asset('css/sidebar.css')}}" rel="stylesheet">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="{{asset('css/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+
 <div class="nav-side-menu">
     <div class="brand">League</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>

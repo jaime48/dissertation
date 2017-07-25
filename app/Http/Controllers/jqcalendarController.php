@@ -98,6 +98,26 @@ class jqcalendarController extends Controller
         return $ret;
     }
 
+    public function updateTeamCalendar(Request $request){
+        $ret = array();
+
+        $db = new \App\jqcalendar();
+
+        $res = $db::where('id','=',$request->calendarId)->update(
+            ['starttime'=>$this->php2MySqlTime($this->js2PhpTime($request->CalendarStartTime)),
+                'endtime'=>$this->php2MySqlTime($this->js2PhpTime($request->CalendarEndTime))]);
+        if($res){
+            $ret['IsSuccess'] = true;
+            $ret['Msg'] = 'Succefully';
+
+        }else{
+            $ret['IsSuccess'] = false;
+            $ret['Msg'] = "error";
+        }
+
+        return $ret;
+    }
+
     public function editCalendar(Request $request){
         $db = new \App\jqcalendar();
         $event = $db::where('Id','=',$request->id)->first();
@@ -126,6 +146,37 @@ class jqcalendarController extends Controller
         ];
         $db::where('id','=',$request->calendarId)->update($data);
         return redirect('calendar');
+    }
+
+    public function updateTeamCalendarInfo(Request $request){
+        $db = new \App\jqcalendar();
+        //print_r($request->all());exit;
+        $data = [
+            'Subject'=>$request->Subject,
+            'Location'=>$request->Location,
+            'StartTime'=>$request->stpartdate,
+            'EndTime'=>$request->etpartdate,
+            'Description'=>$request->Description,
+
+        ];
+        $db::where('id','=',$request->calendarId)->update($data);
+        return redirect('team.calendar');
+    }
+
+
+    public function deleteTeamCalendar(Request $request){
+        $ret = array();
+        $db = new \App\jqcalendar();
+        $db::where('id','=',$request->calendarId)->delete();
+        if($db){
+            $ret['IsSuccess'] = true;
+            $ret['Msg'] = 'Succefully';
+        }else{
+            $ret['IsSuccess'] = false;
+            $ret['Msg'] = 'error';
+
+        }
+        return $ret;
     }
 
 
@@ -164,19 +215,57 @@ class jqcalendarController extends Controller
         return $ret;
     }
 
+
+    public function addTeamCalendar(Request $request){
+        $ret = array();
+        $db = new \App\jqcalendar();
+        $userId = $request->user()->id;
+        $db->user_id = $userId;
+        $db->subject = $request->CalendarTitle;
+        $db->starttime = $this->php2MySqlTime($this->js2PhpTime($request->CalendarStartTime));
+        $db->endtime = $this->php2MySqlTime($this->js2PhpTime($request->CalendarEndTime));
+        $db->isalldayevent = $request->IsAllDayEvent;
+        $add = $db->save();
+        if($add){
+            $ret['IsSuccess'] = true;
+            $ret['Msg'] = 'add success';
+            $ret['Data'] = 'success';
+        }else{
+            $ret['IsSuccess'] = false;
+            $ret['Msg'] = 'error';
+
+        }
+        return json_encode($ret);
+    }
+
     public function addMatch(Request $request){
-        $newMatch = new jqcalendar();
-        $team1Name = \App\teams::find($request->team1)->name;
-        $team2Name = \App\teams::find($request->team2)->name;
-        $newMatch->subject    = $team1Name.' VS '.$team2Name;
-        $newMatch->team1      = $request->team1;
-        $newMatch->team2      = $request->team2;
-        $newMatch->StartTime  = $request->startDate.' '.$request->startTime;
-        $newMatch->EndTime    = $request->endDate.' '.$request->endTime;
-        $newMatch->user_id    = $request->user()->id;
-        $newMatch->event_type = 1;
-        $newMatch->Color      = 7;
-        $newMatch->save();
+
+        $arrMembers=[];
+        array_push($arrMembers,$request->user()->id);
+        $team1 = \App\teams::where('id','=',$request->team1)->with('members')->first();
+        array_push($arrMembers,$team1->manager_id);
+        foreach($team1->members as $value){
+            array_push($arrMembers,$value->user_id);
+        }
+        $team2 = \App\teams::where('id','=',$request->team2)->with('members')->first();
+        array_push($arrMembers,$team2->manager_id);
+        foreach($team2->members as $value){
+            array_push($arrMembers,$value->user_id);
+        }
+        foreach($arrMembers as $val){
+            $newMatch = new jqcalendar();
+            $newMatch->subject    = $team1->name.' VS '.$team2->name;
+            $newMatch->team1      = $request->team1;
+            $newMatch->team2      = $request->team2;
+            $newMatch->StartTime  = $request->startDate.' '.$request->startTime;
+            $newMatch->EndTime    = $request->endDate.' '.$request->endTime;
+            $newMatch->user_id    = $val;
+            $newMatch->event_type = 1;
+            $newMatch->Color      = 7;
+            $newMatch->save();
+
+        }
+
         return view('calendar.sample');
     }
 

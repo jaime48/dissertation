@@ -104,7 +104,7 @@
 
                         <label class="col-md-2 control-label">Upload File</label>
                         <div class="col-md-3">
-                            <input type="file" name="fileToUpload" id="fileToUpload">
+                            <input type="file" name="fileToUpload" id="fileToUpload" required>
                         </div>
                         <label class="col-md-2 control-label">Remarks</label>
                         <div class="col-md-3">
@@ -124,7 +124,7 @@
                                 <div class="input-group-btn">
                                     <div class="fileUpload btn btn-danger fake-shadow">
                                         <span><i class="glyphicon glyphicon-upload"></i> Upload Logo</span>
-                                        <input id="logo-id" name="logo" type="file" class="attachment_upload">
+                                        <input id="logo-id" name="logo" type="file" class="attachment_upload" required>
                                     </div>
                                 </div>
                             </div>

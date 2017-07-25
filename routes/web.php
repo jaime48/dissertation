@@ -121,6 +121,10 @@ Route::any('teamMembers','teamMembersController@getTeamMembersInfo');
 /************************statistics**********************************/
 Route::any('statistics','statisticsController@statistics');
 
+Route::any('team.statistics',function(){
+    return view('team.statistics');
+});
+
 Route::any('teamStats', 'statisticsController@teamStats');
 
 Route::any('playerStats', 'statisticsController@playerStats');
@@ -194,6 +198,28 @@ Route::any('team.deleteSelectedMember','teamsController@deleteSelectedMember');
 Route::any('team.getSelectMember','teamsController@getSelectMember');
 
 Route::any('team.addMembers','teamsController@addNewMembers');
+
+Route::any('team.calendar', function(){
+    return view('team.calendar');
+});
+
+Route::post('updateTeamCalendarInfo','jqcalendarController@updateTeamCalendarInfo');
+
+Route::any('team.addTeamCalendar','jqcalendarController@addTeamCalendar');
+
+Route::any('deleteTeamCalendar','jqcalendarController@deleteTeamCalendar');
+
+Route::any('updateTeamCalendar','jqcalendarController@updateTeamCalendar');
+
+Route::any('editCalendar','jqcalendarController@editCalendar');
+
+Route::any('editCalendarInfo','jqcalendarController@editCalendarInfo');
+
+Route::any('team.teamMembers','teamMembersController@getTeamMembersInfoForTeam');
+
+
+Route::any('team.ranking','teamsController@getTeamRankingInfo');
+
 
 Route::any('/test1',function(){
 

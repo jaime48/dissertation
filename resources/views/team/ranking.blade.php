@@ -1,13 +1,14 @@
 <html>
 <body>
 @include('navi');
-@include('league.sidebar');
+@include('team.sidebar');
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
 <link href="{{asset('css/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
 <div class="container">
-    <div class="col-md-5">
+    <div id="ranking" hidden="hidden">
+    <div class="col-md-5" >
         <div id="sidebar" class="sidebar">
             <aside class="widget card widget--sidebar widget-standings">
                 <div class="widget__title card__header card__header--has-btn">
@@ -257,7 +258,19 @@
         </div>
 
     </div>
+</div>
+    <div id="noLeague" hidden="hidden">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>No team existing</h1>
+                    <p>Please create a team</p>
 
+                    <a href="team.createTeam" class="btn btn-default" id="menu-toggle">Create</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -484,7 +497,16 @@
 
 </style>
 <script>
-
+$(document).ready(function(){
+    var value = '{{$teamInfo}}';
+    if(value==''){
+        $('#noLeague').show();
+        $('#ranking').hide();
+    }else{
+        $('#noLeague').hide();
+        $('#ranking').show();
+    }
+});
 
 
 

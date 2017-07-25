@@ -68,40 +68,40 @@
                     </ul>
 
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">1 Column Portfolio</a>
-                        </li>
-                        <li>
-                            <a href="#">2 Column Portfolio</a>
-                        </li>
-                        <li>
-                            <a href="#">3 Column Portfolio</a>
-                        </li>
-                        <li>
-                            <a href="#">4 Column Portfolio</a>
-                        </li>
-                        <li>
-                            <a href="#">Single Portfolio Item</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">Blog Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Blog Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Blog Post</a>
-                        </li>
-                    </ul>
-                </li>
+                {{--<li class="dropdown">--}}
+                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>--}}
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li>--}}
+                            {{--<a href="#">1 Column Portfolio</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#">2 Column Portfolio</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#">3 Column Portfolio</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#">4 Column Portfolio</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#">Single Portfolio Item</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
+                {{--<li class="dropdown">--}}
+                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>--}}
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li>--}}
+                            {{--<a href="#">Blog Home 1</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#">Blog Home 2</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#">Blog Post</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
             </ul>
         </div>
         <!-- /.navbar-collapse -->

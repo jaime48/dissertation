@@ -90,7 +90,6 @@
 
 <script>
     $(document).ready(function(){
-        var data='';
         var value = '{{$teamInfo['manager_name']}}';
         if(value==''){
             $('#page-content-wrapper').show();

@@ -13,7 +13,7 @@ class teams extends Model
         return $this->belongsTo('App\league');
     }
     public function members(){
-        return $this->hasMany('App\teamMembers','id','team_id');
+        return $this->hasMany('App\teamMembers','team_id','id');
     }
 
 

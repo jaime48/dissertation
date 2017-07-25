@@ -90,7 +90,7 @@
                         As a league manager you could create or edit the info of your league.
                         View all the teams and members registered in the league.<br>
                         Timetable for matches and personal agenda
-                        </p>
+                    </p>
                     <a href="league" class="btn btn-default">Learn More</a>
                 </div>
             </div>
@@ -125,48 +125,77 @@
     <!-- Portfolio Section -->
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="page-header">Portfolio Heading</h2>
+            <h2 class="page-header">News</h2>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a href="http://www.bbc.co.uk/sport/swimming/40671849">
+                <img class="img-responsive img-portfolio img-hover" src="{{asset('images/news/d.jpg')}}" alt="" style="height:202px">
+                <span>22 and done it all? Get a lion tattoo and go for history</span>
             </a>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a href="http://www.bbc.co.uk/sport/golf/40683022">
+                <img class="img-responsive img-portfolio img-hover" src="{{asset('images/news/2.jpg')}}" alt="">
+                Sportsday - rolling sports news and gossip
             </a>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a href="http://www.bbc.co.uk/news/business-40636746">
+                <img class="img-responsive img-portfolio img-hover" src="{{asset('images/news/3.jpg')}}" alt="">
+                Watch: Open leader Kuchar chips in for birdie at the second
             </a>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a href="http://www.bbc.co.uk/sport/football/40678811">
+                <img class="img-responsive img-portfolio img-hover" src="{{asset('images/news/4.jpg')}}" alt="">
+                Romelu Lukaku has scored in his past two Manchester United appearances
             </a>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a href="http://www.bbc.co.uk/sport/golf/40677025">
+                <img class="img-responsive img-portfolio img-hover" src="{{asset('images/news/5.jpg')}}" alt="">
+                Philippe Coutinho scored 14 goals last season
             </a>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a href="http://www.bbc.co.uk/sport/cricket/40674340">
+                <img class="img-responsive img-portfolio img-hover" src="{{asset('images/news/6.jpg')}}" alt="">
+                Highlights: Kaur's superb innings helps India reach final
             </a>
         </div>
     </div>
     <!-- /.row -->
+    <!-- video Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Video</h2>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <video width="360" height="231" controls>
+                <source src="{{asset('videos/small.mp4')}}" type="video/mp4">
 
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <video width="360" height="231" controls>
+                <source src="{{asset('videos/sample1.mp4')}}" type="video/mp4">
+            </video>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <video width="360" height="231" controls>
+                <source src="{{asset('videos/sample2.mp4')}}" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
     <!-- Features Section -->
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header">ProSports Features</h2>
         </div>
         <div class="col-md-6">
-            <p>The ProSports template by Start Bootstrap includes:</p>
+            <p>The ProSports template  includes:</p>
             <ul>
                 <li><strong>Bootstrap v3.3.7</strong>
                 </li>
@@ -174,7 +203,7 @@
                 <li>Font Awesome v4.2.0</li>
                 <li>Working PHP contact form with validation</li>
                 <li>Unstyled page elements for easy customization</li>
-                <li>17 HTML pages</li>
+                <li> HTML pages</li>
             </ul>
             <p>Description.</p>
         </div>

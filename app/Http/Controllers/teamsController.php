@@ -264,4 +264,23 @@ class teamsController extends Controller
         return redirect('team.members');
     }
 
+    public function teamMembers(Request $request){
+        $userId = $request->user()->id;
+        $teamInfo = \App\teams::where('manager_id', '=', $userId)->first();
+        $playersInfo = \App\teamMembers::where('team_id','=',$teamInfo->id)->get();
+        return $playersInfo;
+
+    }
+
+    public function getTeamRankingInfo(Request $request){
+        $userInfo = $request->user();
+        $teamInfo = \App\teams::where('manager_id', '=', $userInfo->id)->with('league')->get();
+        if(!$teamInfo[0]->league_id){
+            return view('team.noRanking')->with(['teamInfo' => 0]);
+        }
+        $teamData = teams::where('league_id', '=', $teamInfo[0]->league_id)->orderBy('score', 'DESC')->get(['name', 'win', 'lose', 'score', 'location', 'logo']);
+        $teamData->leagueName = $teamInfo[0]->league->league_name;
+        return view('team.ranking')->with(['teamInfo' => $teamData]);
+    }
+
 }

@@ -1,5 +1,5 @@
 <link href="{{asset('css/sidebar.css')}}" rel="stylesheet">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="{{asset('css/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
 <div class="nav-side-menu">
     <div class="brand">League</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
@@ -18,22 +18,17 @@
                 </a>
             </li>
             <li>
-                <a href="calendar">
+                <a href="team.calendar">
                     <i class="fa fa-calendar fa-lg"></i> Schedule
                 </a>
             </li>
             <li>
-                <a href="matchUpdate">
-                    <i class="fa fa fa-pencil fa-lg"></i> Update
-                </a>
-            </li>
-            <li>
-                <a href="ranking">
+                <a href="team.ranking">
                     <i class="fa fa-trophy fa-lg"></i> Ranking
                 </a>
             </li>
             <li>
-                <a href="statistics">
+                <a href="team.statistics">
                     <i class="fa fa-bar-chart fa-lg"></i> Statistics
                 </a>
             </li>

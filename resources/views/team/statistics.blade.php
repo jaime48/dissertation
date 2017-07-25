@@ -1,10 +1,9 @@
 <html>
 <body>
 @include('navi');
-@include('league.sidebar');
+@include('team.sidebar');
 {{--<link href="{{asset('css/font-awesome/css/font-awesome.css')}}" rel="stylesheet">--}}
 
-<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
 {{--<!-- Latest compiled and minified CSS -->--}}
 {{--<link rel="stylesheet" href="{{asset('css/chosen.min.css')}}">--}}
@@ -17,29 +16,6 @@
 
 <div class="mainFrame">
     <div class="container">
-        <div class="row col-md-12">
-            <div class="row col-md-5">
-                Choose the team:&nbsp;&nbsp;&nbsp;
-                <select id="selectTeam" name="selectTeam" style="width:35%">
-                    <option value="" disabled selected>Select a team</option>
-                    <option value="1" >Select a team</option>
-                </select>&nbsp;
-                <a href="#" class="btn btn-primary btn-xs" id="teamData"> show team stats</a>
-            </div>
-            <div class="row col-md-2" style="align-content:center">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VS
-            </div>
-            <div class="row col-md-5">
-                <select id="selectTeam2" name="selectTeam2" style="width:35%">
-                    <option value="" disabled selected>Select a team</option>
-                    <option value="1" >Select a team</option>
-                </select>&nbsp;
-                <a href="#" class="btn btn-primary btn-xs" id="teamData2"> show team stats</a>
-            </div>
-
-            <br><br>
-
-    </div>
         <div class="row col-md-12">
             <div class="row col-md-5">
                 Choose the player:&nbsp;
@@ -218,334 +194,24 @@
         $.ajax({
             async:false,
             method:'GET',
-            url:'fetchTeams'
+            url:'team.teamMembers'
 
         }).done(function(msg){
-            $('#selectTeam').find('option:not(:disabled)').remove();
+            $('#selectPlayer').find('option:not(:disabled)').remove();
 
             $.each(msg, function(key, value) {
-                $('#selectTeam').append(new Option(value.name, value.id));
+                $('#selectPlayer').append(new Option(value.user.first_name+' '+value.user.last_name, value.user_id));
 
             });
-            $('#selectTeam2').find('option:not(:disabled)').remove();
+            $('#selectPlayer2').find('option:not(:disabled)').remove();
 
             $.each(msg, function(key, value) {
-                $('#selectTeam2').append(new Option(value.name, value.id));
+                $('#selectPlayer2').append(new Option(value.user.first_name+' '+value.user.last_name, value.user_id));
 
             });
 
 
         });
-
-        $('#selectTeam').change(function(){
-            var val = $(this).val();
-            $.ajax({
-                method: 'GET',
-                url:'teamMembers',
-                data:{'team_id':val}
-            }).done(function(data){
-                $('#selectPlayer').find('option:not(:disabled)').remove();
-                $.each(data , function(key, value){
-                    console.log(value);
-                    $('#selectPlayer').append(new Option(value.user.first_name+' '+value.user.last_name, value.user_id));
-                });
-
-
-            });
-        });
-
-        $('#selectTeam2').change(function(){
-            var val = $(this).val();
-            $.ajax({
-                method: 'GET',
-                url:'teamMembers',
-                data:{'team_id':val}
-            }).done(function(data){
-
-                $('#selectPlayer2').find('option:not(:disabled)').remove();
-                $.each(data , function(key, value){
-                    $('#selectPlayer2').append(new Option(value.user.first_name+' '+value.user.last_name, value.user_id));
-                });
-
-            });
-        });
-
-
-        $('#teamData').click(function(){
-            myChart1 = null;
-            myChart = null;
-            $teamId = $('#selectTeam').val();
-            var $teamData=[] ;
-            var $winRate=[];
-            $.ajax({
-                async:false,
-                url: 'teamStats',
-                method:'GET',
-                data: {'team_id':$teamId}
-            }).done(function(msg){
-                $("#h2Team1 img").remove();
-                $('#h2Team1').prepend('<img src="images/teams/'+msg.teamInfo.logo+'" height="40" width="40">');
-                $('#h2Team1Name').text(msg.teamInfo.name);
-                for(var i=1;i<=9;i++){
-                    msg['0'+i] == undefined ? $teamData.push(0) : $teamData.push(msg['0'+i].win_num);
-                }
-
-                for(var i=10;i<=12;i++) {
-                    msg[i] == undefined ? $teamData.push(0) : $teamData.push(msg[i].win_num);
-                }
-
-                for(var i=1;i<=9;i++){
-                    msg['0'+i] == undefined ? $winRate.push(0) : $winRate.push(msg['0'+i].win_rate);
-                }
-
-                for(var i=10;i<=12;i++) {
-                    msg[i] == undefined ? $teamData.push(0) : $winRate.push(msg[i].win_rate);
-                }
-
-
-
-            });
-            var ctx = document.getElementById("myChart").getContext('2d');
-            myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                    datasets: [{
-                        label: 'wins',
-                        data: $teamData,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            scaleLabel: { display: true, labelString: '' },
-                            position: 'left', id: 'y-axis-1',type: 'linear',
-                            ticks: { min: 0, beginAtZero: true, stepSize: 2, max: 10 }
-                        }],
-                        xAxes: [{
-                            ticks: {
-                                beginAtZero:false,
-                                maximum:200
-                            }
-                        }]
-                    }
-                }
-            });
-
-
-            var ctx1 = document.getElementById("myChart1").getContext('2d');
-            myChart1 = new Chart(ctx1, {
-                type: 'line',
-                data: {
-                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                    datasets: [{
-                        label: 'win rate(%)',
-                        data: $winRate,
-                        backgroundColor: [
-                            'rgba(54, 162, 235, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            scaleLabel: { display: true, labelString: '' },
-                            position: 'left', id: 'y-axis-1',type: 'linear',
-                            ticks: { min: 0, beginAtZero: true, stepSize: 0.2, max: 1 }
-                        }],
-                        xAxes: [{
-                            ticks: {
-                                beginAtZero:false,
-                                maximum:200
-                            }
-                        }]
-                    }
-                }
-            });
-            $('#playerStats').hide();
-            $('#teamStats').show();
-        });
-
-        $('#teamData2').click(function(){
-            myChart4 = null;
-            myChart5 = null;
-            $teamId = $('#selectTeam2').val();
-            var $teamData2=[] ;
-            var $winRate2=[];
-            $.ajax({
-                async:false,
-                url: 'teamStats',
-                method:'GET',
-                data: {'team_id':$teamId}
-            }).done(function(msg){
-                $("#h2Team2 img").remove();
-                $('#h2Team2').prepend('<img src="images/teams/'+msg.teamInfo.logo+'" height="40" width="40">');
-                $('#h2Team2Name').text(msg.teamInfo.name);
-                for(var i=1;i<=9;i++){
-                    msg['0'+i] == undefined ? $teamData2.push(0) : $teamData2.push(msg['0'+i].win_num);
-                }
-
-                for(var i=10;i<=12;i++) {
-                    msg[i] == undefined ? $teamData2.push(0) : $teamData2.push(msg[i].win_num);
-                }
-
-                for(var i=1;i<=9;i++){
-                    msg['0'+i] == undefined ? $winRate2.push(0) : $winRate2.push(msg['0'+i].win_rate);
-                }
-
-                for(var i=10;i<=12;i++) {
-                    msg[i] == undefined ? $teamData2.push(0) : $winRate2.push(msg[i].win_rate);
-                }
-            });
-            var ctx4 = document.getElementById("myChart4").getContext('2d');
-            myChart = new Chart(ctx4, {
-                type: 'bar',
-                data: {
-                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                    datasets: [{
-                        label: 'wins',
-                        data: $teamData2,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            scaleLabel: { display: true, labelString: '' },
-                            position: 'left', id: 'y-axis-1',type: 'linear',
-                            ticks: { min: 0, beginAtZero: true, stepSize: 2, max: 10 }
-                        }],
-                        xAxes: [{
-                            ticks: {
-                                beginAtZero:false,
-                                maximum:200
-                            }
-                        }]
-                    }
-                }
-            });
-
-
-            var ctx5 = document.getElementById("myChart5").getContext('2d');
-            myChart1 = new Chart(ctx5, {
-                type: 'line',
-                data: {
-                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                    datasets: [{
-                        label: 'win rate(%)',
-                        data: $winRate2,
-                        backgroundColor: [
-                            'rgba(54, 162, 235, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            scaleLabel: { display: true, labelString: '' },
-                            position: 'left', id: 'y-axis-1',type: 'linear',
-                            ticks: { min: 0, beginAtZero: true, stepSize: 0.2, max: 1 }
-                        }],
-                        xAxes: [{
-                            ticks: {
-                                beginAtZero:false,
-                                maximum:200
-                            }
-                        }]
-                    }
-                }
-            });
-            $('#playerStats').hide();
-            $('#teamStats').show();
-        });
-
 
         $('#playerData').click(function(){
             $playerId = $('#selectPlayer').val();

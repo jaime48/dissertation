@@ -35,4 +35,19 @@ class teamMembersController extends Controller
 
     }
 
+    public function getTeamMembersInfoForTeam(Request $request){
+        $managerInfo = $request->user();
+        $teanmInfo = \App\teams::where('manager_id','=',$managerInfo->id)->first();
+        $membersInfo = teamMembers::where('team_id','=',$teanmInfo->id)
+            ->with(['team' =>function($query) use ($teanmInfo) {
+            $query->where('id','=',$teanmInfo->id);
+        }])->with('user')->where('team_id','=',$teanmInfo->id)->get();
+
+        foreach($membersInfo as &$info){
+            $info->teamInfo = $info->team->name;
+        }
+        return $membersInfo;
+
+    }
+
 }
