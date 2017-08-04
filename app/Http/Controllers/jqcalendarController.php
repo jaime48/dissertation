@@ -9,6 +9,7 @@ use App\jqcalendar;
 class jqcalendarController extends Controller
 {
     //
+
     public function testCalendar(Request $request){
         $userId = $request->user()->id;
         $ret = $this->listCalendar($request->showdate, $request->viewtype,$userId);

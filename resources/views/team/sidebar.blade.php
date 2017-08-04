@@ -22,6 +22,7 @@
                     <i class="fa fa-calendar fa-lg"></i> Schedule
                 </a>
             </li>
+            
             <li>
                 <a href="team.ranking">
                     <i class="fa fa-trophy fa-lg"></i> Ranking

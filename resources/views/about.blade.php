@@ -1,3 +1,10 @@
+<script src="{{asset('js/jquery.js')}}"></script>
+<!-- Custom CSS -->
+<link href="{{asset('css/round-about.css')}}" rel="stylesheet">
+<script src="{{asset('js/chosen.jquery.min.js')}}"></script>
+<script src="{{asset('js/charts/Chart.bundle.min.js')}}"></script>
+<script src="{{asset('js/charts/Chart.min.js')}}"></script>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,12 +18,7 @@
 
     <title>Round About - Start Bootstrap Template</title>
 
-    <script src="{{asset('js/jquery.js')}}"></script>
-    <!-- Custom CSS -->
-    <link href="{{asset('css/round-about.css')}}" rel="stylesheet">
-    <script src="{{asset('js/chosen.jquery.min.js')}}"></script>
-    <script src="{{asset('js/charts/Chart.bundle.min.js')}}"></script>
-    <script src="{{asset('js/charts/Chart.min.js')}}"></script>
+
 
     <![endif]-->
 

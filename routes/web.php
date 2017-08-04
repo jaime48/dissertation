@@ -220,7 +220,17 @@ Route::any('team.teamMembers','teamMembersController@getTeamMembersInfoForTeam')
 
 Route::any('team.ranking','teamsController@getTeamRankingInfo');
 
+/*****************************social***************************/
 
+Route::any('social','postsController@getAllPosts')->name('social');
+
+Route::any('getComments', 'commentsController@getComments');
+
+Route::any('submitComment', 'commentsController@submitComment');
+
+Route::any('social.createPost', 'postsController@createPost');
+
+Route::post('social.createPostSubmit','postsController@createPostSubmit');
 Route::any('/test1',function(){
 
 

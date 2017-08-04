@@ -2,6 +2,8 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('css/modern-business.css')}}" rel="stylesheet">
+<link href="{{asset('css/home.css')}}" rel="stylesheet">
+<link href="{{asset('css/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 <!-- Custom Fonts -->
 
 <!-------------------------------------------------------->
@@ -69,58 +71,57 @@
         <span class="icon-next"></span>
     </a>
 </header>
+<div class="index-content">
+    <div class="container">
+        <h1 class="page-header">
+            Welcome to ProSports
+        </h1>
+        <a href="league">
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="{{asset('images/league.jpg')}}">
+                    <h4>My League</h4>
+                    <p>
+                        As a league manager you could create or edit the info of your league.
+                        View all the teams and members registered in the league.
+                        Timetable for matches and personal agenda
+                    </p>
+                    <a href="league" class="blue-button">Learn More</a>
+                </div>
+            </div>
+        </a>
+        <a href="team.team">
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="{{asset('images/team.jpg')}}" style="width:350px;height:184px">
+                    <h4> My Team</h4>
+                    <p> As a team manager you could create or edit the info of your team.
+                        View your the team and members registered in the team.
+                        Timetable for matches and personal agenda</p>
+                    <a href="team.team" class="blue-button">Read More</a>
+                </div>
+            </div>
+        </a>
+        <a href="social">
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="{{asset('images/social.jpg')}}"  style="width:350px;height:182px">
+                    <h4>Social</h4>
+                    <p> Adding friends, adding or joining a group.<br>
+                        Online chatting room.<br>
+                        Showing others what's on your mind.
+                        <br><br>
+                    </p>
+                    <a href="social" class="blue-button">Read More</a>
+                </div>
+            </div>
+        </a>
 
+    </div>
+</div>
 <!-- Page Content -->
 <div class="container">
 
-    <!-- Marketing Icons Section -->
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                Welcome to ProSports
-            </h1>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><i class="fa fa-futbol-o"></i> My League</h4>
-                </div>
-                <div class="panel-body">
-                    <p> The league you own:<br>
-                        As a league manager you could create or edit the info of your league.
-                        View all the teams and members registered in the league.<br>
-                        Timetable for matches and personal agenda
-                    </p>
-                    <a href="league" class="btn btn-default">Learn More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-gift"></i> My Team</h4>
-                </div>
-                <div class="panel-body">
-                    <p>The team you own:<br> As a team manager you could create or edit the info of your team.
-                        View your the team and members registered in the team.<br>
-                        Timetable for matches and personal agenda<br></p>
-                    <a href="team.team" class="btn btn-default">Learn More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-compass"></i> Function 3</h4>
-                </div>
-                <div class="panel-body">
-                    <p>Description<br><br><br><br><br></p>
-                    <a href="#" class="btn btn-default">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
 
     <!-- Portfolio Section -->
     <div class="row">
