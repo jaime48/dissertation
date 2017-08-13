@@ -88,12 +88,6 @@ $(document).ready(function(){
 
     var $newdiv1 = $(" \<li class=\"dropdown\" id=\"#loginin\">\
                     <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" id=\"loginedIn\"><span id=\"loginUser\">123<span></a> <ul class=\"dropdown-menu\">\
-                            <li>\
-                            <a href=\"full-width.html\">My group</a>\
-                    </li>\
-                    <li>\
-                    <a href=\"sidebar.html\">My league</a>\
-                    </li>\
                     <li>\
                     <a href=\"settings\">Account Setting</a>\
                             </li>\

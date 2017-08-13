@@ -1,3 +1,9 @@
+function sendMessage(){
+    $('#sendMessage').modal('show');
+}
+
+
+
 $(document).ready(function(){
     $(document).on('click', '.dropdown-menu', function (e) {
         e.stopPropagation();
@@ -36,4 +42,33 @@ $(document).ready(function(){
             refreshComments( $(event.target).parent().parent().find('.notifications-wrapper'),$post_id);
         });
     })
+
+
+
+    $(document).on('click','.likeOrDislike', function(e){
+        $post_id = $(e.target).parent().parent().parent().find("a").find("input").val();
+
+        if($(e.target).attr("class") == "glyphicon glyphicon-thumbs-up"){
+            $likeOrDislike = 1;
+        }
+        if($(e.target).attr("class") == "glyphicon glyphicon-thumbs-down"){
+            $likeOrDislike = 0;
+        }
+        $.ajax({
+            async:false,
+            method:'GET',
+            url:'likeOrDislike',
+            data:{'post_id':$post_id, 'likeOrDislike': $likeOrDislike}
+        }).done(function(msg){
+            console.log($(e.target).next('span'));
+            //$(e.target).next('span').text(parseInt($(e.target).next('span').text())+1);
+            if(msg==0){
+                return;
+            }else{
+                $(e.target).next('span').text()=='' ? $num = 0 : $num = parseInt($(e.target).next('span').text());
+                $(e.target).next('span').text($num+1);
+            }
+        });
+    })
+
 });

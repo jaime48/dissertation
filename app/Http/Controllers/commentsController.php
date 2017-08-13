@@ -20,4 +20,10 @@ class commentsController extends Controller
         $comment->post_id = $request->post_id;
         $comment->save();
     }
+
+    public function likeOrDislike() {
+
+
+    }
+
 }

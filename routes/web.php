@@ -39,7 +39,7 @@ Route::get('/template3', function () {
     return view('template3');
 });
 
-Route::get('about', 'evaluationController@averageStats')->middleware('multiAuth');
+Route::get('about', 'evaluationController@averageStats');
 
 Route::get('/mail','Controller@mail');
 
@@ -228,14 +228,17 @@ Route::any('getComments', 'commentsController@getComments');
 
 Route::any('submitComment', 'commentsController@submitComment');
 
-Route::any('social.createPost', 'postsController@createPost');
+Route::any('social.createPost', function() {
+    return view('social.createNew');
+});
 
 Route::post('social.createPostSubmit','postsController@createPostSubmit');
+
 Route::any('/test1',function(){
-
-
     return view('test1');
 });
+
+Route::any('likeOrDislike', 'postsController@likeOrDislike');
 
 Route::any('/test',function(){
 

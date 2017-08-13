@@ -1,7 +1,7 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <!-- Custom CSS -->
 <link href="{{asset('css/round-about.css')}}" rel="stylesheet">
-{{--<link href="{{asset('css/social/posts.css')}}" rel="stylesheet">--}}
+<link href="{{asset('css/social/posts.css')}}" rel="stylesheet">
 <script src="{{asset('js/chosen.jquery.min.js')}}"></script>
 <script src="{{asset('js/charts/Chart.bundle.min.js')}}"></script>
 <script src="{{asset('js/charts/Chart.min.js')}}"></script>
@@ -18,11 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Round About - Start Bootstrap Template</title>
-
-
-
-    <![endif]-->
+    <title>Social</title>
 
 </head>
 
@@ -35,24 +31,23 @@
 <!------------------------------------------------------------>
 <div class="mainContent">
     <div style="position: fixed; top: 0; right: 0; width: 200px; height: 500px;">
-
-        <div class="well sidebar-nav" style="width:200px">
+        <div class="well sidebar-nav" style="width:200px; margin-top:100px">
             <ul class="nav">
-                <li>Right Sidebar</li>
-                <li class="active"><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li>Sidebar</li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
+                <li>Friends</li>
+                @foreach($posts->connections as $val)
+                    <li class="active">
+                        <a class="dropdown-toggle" data-toggle="dropdown">{{$val->users->first_name.' '.$val->users->last_name}}
+                            <span hidden="hidden">{{$val->users->id}}</span>
+                        </a>
+                        <ul class="dropdown-menu comment-dropdown" role="menu" aria-labelledby="dLabel">
+                            <li><a href="javascript:sendMessage()">Send message</a></li>
+                            <li><a>Unfriend</a></li>
+                            <li><a>123</a></li>
+                        </ul>
+                    </li>
+                @endforeach
             </ul>
         </div>
-        <!--/.well -->
-
-
     </div>
     <div id="posts" align="left" style="margin-top:100px;margin-left:150px;">
 
@@ -81,7 +76,7 @@
              <a class="dropdown-toggle" data-toggle="dropdown" >
              <input class="hidden_input_id" hidden="hidden" value="{{$val->id}}">
              <span>{{$val->comments_num}}</span> comments</a>
-                <ul class="dropdown-menu comment-dropdown" role="menu" aria-labelledby="dLabel" style="width:400px">
+                <ul class="dropdown-menu comment-dropdown" role="menu" aria-labelledby="dLabel" style="width:400px; position:relative;">
 
                         <div class="notification-heading">
                         <h4 class="menu-title">Comments</h4>
@@ -99,12 +94,10 @@
              </span>
                             <li>|</li>
                             <li>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <a class="likeOrDislike"><i class="glyphicon glyphicon-thumbs-up"></i>&nbsp;<span>{{$val->like}}</span></a>&nbsp;
+                                <a class="likeOrDislike"><i class="glyphicon glyphicon-thumbs-down"></i>&nbsp;<span>{{$val->dislike}}</span></a>
                             </li>
+
 
                         </ul>
                     </div>
@@ -117,33 +110,50 @@
 </div>
 </body>
 </html>
+
+
+<!-- Modal -->
+<div class="modal fade" id="sendMessage" role="dialog" data-backdrop="false">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Send Message</h4>
+            </div>
+            <form name="addTeam" method="post" action="addTeam">
+                <div class="modal-body">
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-sm">Submit</button>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
 <!-----------------------footer--------------------------->
 @include('footer')
 <!------------------------------------------------------------>
+
+
+
 <style>
-    .img-circle {
-        width: 200px;
-        height: 200px;
-    }
-    .comment-dropdown{
-        position:relative;
-    }
-    .shadow{
+    .modal.in .modal-dialog {
+        position:fixed;
+        bottom:0px;
+        right:100px;
+        margin:0px;
+        width:300px;
+        height:400px
 
-        background-color: #FFFFFF;
-        padding:10px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius:4px;
-        box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
     }
-    .shadow:hover{
-        box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
-        color:black;
+    .modal-content {
+        height:400px
     }
+
 </style>
-
-<script>
-
-
-</script>

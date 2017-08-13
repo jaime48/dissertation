@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\evaluation;
 use App\statistics;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class evaluationController extends Controller
 {
@@ -74,6 +75,10 @@ class evaluationController extends Controller
      * check whether the user has already taken the survey
      */
     public function dupCheck(Request $request){
+        if(!Auth::check()){
+            redirect()->route('error',array('error' => 'please log in'));
+            return 0;
+        }
         if(\App\evaluation::where('user_id','=',$request->user()->id)->first()){
             return 1;
         }else{

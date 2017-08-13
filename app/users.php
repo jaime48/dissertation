@@ -9,6 +9,10 @@ class users extends Model implements Authenticatable
 {
     //
     use \Illuminate\Auth\Authenticatable;
+
+    public function connections() {
+        $this->hasMany('App\connections','user_id','id');
+    }
     
     public function verifyColumn($request){
         $data=[];

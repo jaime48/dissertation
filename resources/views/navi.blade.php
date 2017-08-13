@@ -38,7 +38,7 @@
                     </button><span id=""></span>
                     <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel" id="" style="width:400px">
 
-                        <div class="notification-heading"><h4 class="menu-title">Notifications</h4><a href='#' onclick="setAllRead()"><h4 class="menu-title pull-right">Set all as read<i class="glyphicon glyphicon-circle-arrow-right"></i></h4></a>
+                        <div class="notification-heading"><h4 class="menu-title">Messages</h4><a href='#' onclick="setAllRead()"><h4 class="menu-title pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></h4></a>
                         </div>
                         <li class="divider"></li>
                         <div class="">
