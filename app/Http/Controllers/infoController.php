@@ -18,7 +18,12 @@ class infoController extends Controller
     }
 
     public function editInfo(Request $request) {
-        $handle = \App\info::where('user_id','=',$request->user()->id)->update([$request->data['name']=>$request->data['value']]);
+
+        $handle = \App\info::updateOrCreate(
+            ['user_id' => $request->user()->id],
+            [$request->data['name']=>$request->data['value']]
+
+        );
         if($handle){
             return 1;
         }else{
