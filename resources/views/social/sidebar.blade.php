@@ -8,8 +8,13 @@
 
         <ul id="menu-content">
             <li>
-                <a href="social">
-                    <i class="fa fa-home fa-lg"></i> home
+                <a href="social.home">
+                    <i class="fa fa-home fa-lg"></i> Home
+                </a>
+            </li>
+            <li>
+                <a href="social.posts">
+                    <i class="fa fa-home fa-lg"></i> posts
                 </a>
             </li>
             <li>

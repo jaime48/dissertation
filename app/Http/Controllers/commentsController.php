@@ -21,9 +21,5 @@ class commentsController extends Controller
         $comment->save();
     }
 
-    public function likeOrDislike() {
-
-
-    }
 
 }

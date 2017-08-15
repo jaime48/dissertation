@@ -222,7 +222,9 @@ Route::any('team.ranking','teamsController@getTeamRankingInfo');
 
 /*****************************social***************************/
 
-Route::any('social','postsController@getAllPosts')->name('social');
+Route::any('social','infoController@showInfo')->middleware('multiAuth');
+
+Route::any('social.posts','postsController@getAllPosts')->name('social')->middleware('multiAuth');
 
 Route::any('getComments', 'commentsController@getComments');
 
@@ -233,6 +235,12 @@ Route::any('social.createPost', function() {
 });
 
 Route::post('social.createPostSubmit','postsController@createPostSubmit');
+
+Route::any('social.home','infoController@showInfo');
+
+Route::any('social.editInfo','infoController@editInfo');
+
+
 
 Route::any('/test1',function(){
     return view('test1');
