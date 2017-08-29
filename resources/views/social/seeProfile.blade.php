@@ -31,7 +31,6 @@
 <script src="{{asset('js/social/fileinput.min.js')}}"></script>
 <script src="{{asset('js/social/plugins/piexif.js')}}"></script>
 <script src="{{asset('js/social/plugins/sortable.js')}}"></script>
-<script src="{{asset('js/social/home.js')}}"></script>
 
 <!------------------------------------------------------------>
 <div class="container" style="margin-top:20px;margin-left:300px;min-height:500px;">
@@ -90,81 +89,41 @@
                                     <th align="right" style="width:30%">Bio</th>
                                     <td align="left">
                                         {{$info->bio}}
-                                        <div hidden="hidden" id="new_first_name" style="align-content: center">
-                                            <div class="form-group">
-                                                Bio<input name="bio" class="changePassword"><br>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-sm save" >Save <span class="glyphicon glyphicon-send"></span></button>
-                                            <button type="button" class="btn btn-save btn-sm cancel" >Cancel <span class="glyphicon glyphicon-warning"></span></button>
-                                        </div>
+
                                     </td>
-                                    <td align="left" width="30%"> <a class="edit ml10" title="Edit">
-                                            <i class="glyphicon glyphicon-edit"></i>
-                                        </a></td>
+
                                 </tr>
                                 <tr>
                                     <th align="left">Phone</th>
                                     <td align="left">
                                         {{$info->phone}}
-                                        <div hidden="hidden" id="new_first_name" style="align-content: center">
-                                            <div class="form-group">
-                                                Phone<input name="phone" class="changePassword"><br>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-sm save" >Save <span class="glyphicon glyphicon-send"></span></button>
-                                            <button type="button" class="btn btn-save btn-sm cancel" >Cancel <span class="glyphicon glyphicon-warning"></span></button>
-                                        </div>
+
                                     </td>
-                                    <td align="left" width="30%"> <a class="edit ml10" title="Edit">
-                                            <i class="glyphicon glyphicon-edit"></i>
-                                        </a></td>
+
                                 </tr>
                                 <tr>
                                     <th align="right">Email</th>
                                     <td align="left">
                                         {{$info->email}}
-                                        <div hidden="hidden" id="new_email" style="align-content: center">
-                                            <div class="form-group">
-                                                Email<input name="email" class="changePassword"><br>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-sm save" >Save <span class="glyphicon glyphicon-send"></span></button>
-                                            <button type="button" class="btn btn-save btn-sm cancel" >Cancel <span class="glyphicon glyphicon-warning"></span></button>
-                                        </div>
+
                                     </td>
-                                    <td align="left" width="30%"> <a class="edit ml10" title="Edit">
-                                            <i class="glyphicon glyphicon-edit"></i>
-                                        </a></td>
+
                                 </tr>
                                 <tr>
                                     <th align="right">Address</th>
                                     <td align="left">
                                         {{$info->address}}
-                                        <div hidden="hidden" id="new_first_name" style="align-content: center">
-                                            <div class="form-group">
-                                                Address<input name="address" class="changePassword"><br>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-sm save" >Save <span class="glyphicon glyphicon-send"></span></button>
-                                            <button type="button" class="btn btn-save btn-sm cancel" >Cancel <span class="glyphicon glyphicon-warning"></span></button>
-                                        </div>
+
                                     </td>
-                                    <td align="left" width="30%"> <a class="edit ml10" title="Edit">
-                                            <i class="glyphicon glyphicon-edit"></i>
-                                        </a></td>
+
                                 </tr>
                                 <tr>
                                     <th align="right">Hobby</th>
                                     <td align="left">
                                         {{$info->hobby}}
-                                        <div hidden="hidden" id="new_first_name" style="align-content: center">
-                                            <div class="form-group">
-                                                Hobby<input name="hobby" class="changePassword"><br>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-sm save" >Save <span class="glyphicon glyphicon-send"></span></button>
-                                            <button type="button" class="btn btn-save btn-sm cancel" >Cancel <span class="glyphicon glyphicon-warning"></span></button>
-                                        </div>
+
                                     </td>
-                                    <td align="left" width="30%"> <a class="edit ml10" title="Edit">
-                                            <i class="glyphicon glyphicon-edit"></i>
-                                        </a></td>
+
                                 </tr>
                                 </tbody>
                             </table>
@@ -172,42 +131,53 @@
                     </div>
                 </div>
                 <div class="tab-pane fade in" id="tab2">
-
+                    <h2>Personal Info</h2>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <table class="table">
                                 <tbody>
-                                @foreach($info->connections as $cons)
-                                    <tr>
-                                        <th align="right" style="width:30%">
-                                            <img alt="" src="{{asset('images/avatar/'.$cons->info->avatar)}}" style=" width: 40px;height: 40px;border-radius: 50%">
-                                        </th>
-                                        <td align="left" style="width:30%;font-size: 14px; padding:20px">
-                                            {{$cons->users->first_name.' '.$cons->users->last_name}}
+                                <tr>
+                                    <th align="right" style="width:30%">Bio</th>
+                                    <td align="left">
+                                        {{$info->bio}}
 
-                                        </td>
-                                        <td align="center" style="width:30%;font-size: 14px; padding:20px" >
-                                            <span hidden="hidden">{{$cons->users->id}}</span>
-                                            <a class="edit ml10 seeProfile" title="view profile">
-                                                <i class="glyphicon glyphicon-user"></i>
-                                            </a>&nbsp;
-                                            <a class="edit ml10" title="send message">
-                                                <i class="glyphicon glyphicon-envelope"></i>
-                                            </a>&nbsp;
-                                            <a class="edit ml10 unfriend" title="unfriend">
-                                                <i class="glyphicon glyphicon-trash"></i>
-                                            </a>
-                                        </td>
+                                    </td>
 
-                                    </tr>
-                                @endforeach
+                                </tr>
+                                <tr>
+                                    <th align="left">Phone</th>
+                                    <td align="left">
+                                        {{$info->phone}}
 
+                                    </td>
 
+                                </tr>
+                                <tr>
+                                    <th align="right">Email</th>
+                                    <td align="left">
+                                        {{$info->email}}
+
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th align="right">Address</th>
+                                    <td align="left">
+                                        {{$info->address}}
+
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th align="right">Hobby</th>
+                                    <td align="left">
+                                        {{$info->hobby}}
+
+                                    </td>
+
+                                </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="col-md-6" >
-                            test
                         </div>
                     </div>
                 </div>
@@ -253,28 +223,6 @@
 @include('footer')
 <!------------------------------------------------------------>
 
-
-<div id="deleteModal" class="modal fade" role="dialog">
-    <div class="modal-dialog resize">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Unfriend</h4>
-            </div>
-
-            <div class="modal-body">Are you sure to unfriend this person ?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="confirmDelete">Yes</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-
-    </div>
-</div>
 <style>
 
     /* USER PROFILE PAGE */
@@ -366,25 +314,15 @@
 
 <script>
 
-    $(document).on('click','.save', function(e){
-
-        var name = $(e.target).prevAll('div').find('input').attr('name');
-        var value = $(e.target).prevAll('div').find('input').val();
-
-        //$data[$name] = $value;
-
-        $.ajax({
-            method:'GET',
-            url:'social.editInfo',
-            data:{'data':{name,value}}
-        }).done(function(msg){
-            if(msg==1){
-                location.reload();
-            }else{
-                alert('something is wrong !!!');
-            }
+    $(document).ready(function() {
+        $("#avatar_link").click(function(){
+            $('#editAvatar').modal('show');
         });
     });
+
+
+
+
 </script>
 
 

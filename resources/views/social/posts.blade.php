@@ -40,6 +40,7 @@
                             <span hidden="hidden">{{$val->users->id}}</span>
                         </a>
                         <ul class="dropdown-menu comment-dropdown" role="menu" aria-labelledby="dLabel">
+                            <li><a id="seeProfile" href="#">See profile</a></li>
                             <li><a href="javascript:sendMessage()">Send message</a></li>
                             <li><a>Unfriend</a></li>
                             <li><a>123</a></li>
@@ -60,7 +61,7 @@
                         <a class="pull-left" href="#"><video width="350" height="200" controls>
                                 <source src="{{asset('posts/'.$val->url)}}"  type="video/mp4">
 
-                                Your browser does not support the video tag.
+
                             </video></a>
 
                     @endif

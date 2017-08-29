@@ -67,10 +67,11 @@
             <label class="col-md-3 control-label" for="Name"></label>
             <div class="col-md-6">
                 <button id="submit" name="submit" class="btn btn-success">Submit</button>
-    </form>
+                </div>
+
 
             </div>
-
+    </form>
         </div>
 
 </div>

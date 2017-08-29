@@ -10,4 +10,8 @@ class connections extends Model
     public function users() {
         return $this->belongsTo('App\users','connection_id','id');
     }
+
+    public function info() {
+        return $this->hasOne('\App\info','user_id','user_id');
+    }
 }

@@ -41,13 +41,12 @@ $(document).ready(function(){
         }).done(function () {
             refreshComments( $(event.target).parent().parent().find('.notifications-wrapper'),$post_id);
         });
-    })
+    });
 
 
 
     $(document).on('click','.likeOrDislike', function(e){
         $post_id = $(e.target).parent().parent().parent().find("a").find("input").val();
-
         if($(e.target).attr("class") == "glyphicon glyphicon-thumbs-up"){
             $likeOrDislike = 1;
         }
@@ -60,8 +59,6 @@ $(document).ready(function(){
             url:'likeOrDislike',
             data:{'post_id':$post_id, 'likeOrDislike': $likeOrDislike}
         }).done(function(msg){
-            console.log($(e.target).next('span'));
-            //$(e.target).next('span').text(parseInt($(e.target).next('span').text())+1);
             if(msg==0){
                 return;
             }else{
@@ -70,5 +67,13 @@ $(document).ready(function(){
             }
         });
     })
+
+    $(document).on('click','#seeProfile',function(event) {
+
+        $friend_id = $(event.target).parent().parent().prevAll("a").find("span").text();
+        console.log($friend_id);
+        window.location = '/seeProfile?friend_id=' + $friend_id;
+       
+    });
 
 });

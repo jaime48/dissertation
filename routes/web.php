@@ -240,7 +240,12 @@ Route::any('social.home','infoController@showInfo');
 
 Route::any('social.editInfo','infoController@editInfo');
 
+Route::any('info.uploadAvatar','infoController@uploadAvatar');
 
+Route::any('seeProfile','infoController@seeProfile');
+
+
+Route::any('unfriend','connectionsController@unfriend');
 
 Route::any('/test1',function(){
     return view('test1');
