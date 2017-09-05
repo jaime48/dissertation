@@ -6,6 +6,7 @@ $(document).ready(function() {
         // $(".tab").addClass("active"); // instead of this do the below
         $(this).removeClass("btn-default").addClass("btn-primary");
     });
+    
 });
 
 $(document).on('click','.edit',function(e){

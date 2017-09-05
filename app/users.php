@@ -26,4 +26,8 @@ class users extends Model implements Authenticatable
         return $data;
     }
 
+    public function info(){
+        return $this->hasOne('\App\info','user_id','id');
+    }
+
 }

@@ -169,8 +169,14 @@ Route::any('testUser','usersController@test');
 
 Route::any('getNotifications','notificationsController@getNotifications');
 
+
+
 Route::any('setRead', 'notificationsController@setRead');
 
+
+/*****************************Requests***************************/
+
+Route::any('getRequests','requestsController@getRequests');
 
 /*****************************team***************************/
 
@@ -236,7 +242,7 @@ Route::any('social.createPost', function() {
 
 Route::post('social.createPostSubmit','postsController@createPostSubmit');
 
-Route::any('social.home','infoController@showInfo');
+Route::any('social.home','infoController@showInfo')->name('social.home');
 
 Route::any('social.editInfo','infoController@editInfo');
 
@@ -245,7 +251,24 @@ Route::any('info.uploadAvatar','infoController@uploadAvatar');
 Route::any('seeProfile','infoController@seeProfile');
 
 
+Route::any('getFriends','infoController@getFriends');
+
+
 Route::any('unfriend','connectionsController@unfriend');
+
+Route::any('addableFriends','connectionsController@addableFriends');
+
+Route::any('friendsRequest','requestsController@friendsRequest');
+
+Route::any('acceptFriend','requestsController@acceptFriend');
+
+Route::any('declineFriend','requestsController@declineFriend');
+
+Route::any('createGroup','groupsController@createGroup');
+
+Route::any('getGroupMembers','groupsController@getGroupMembers');
+
+
 
 Route::any('/test1',function(){
     return view('test1');

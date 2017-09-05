@@ -52,6 +52,91 @@ function refreshNoti() {
     });
 }
 
+// request
+refreshRequests();
+function refreshRequests() {
+    $.ajax({
+        method:'GET',
+        url:'getRequests'
+    }).done(function(msg){
+        console.log(msg);
+        if(msg==0){
+            $('#badge-requests').remove();
+            return;
+        }
+        if(msg.num==0){
+            $('#badge-requests').remove();
+        }else{
+            $('#badge-requests').remove();
+            $('#requestsIcon').append(' <span class=\'badge\' id="badge-requests" style="align-content:left">'+msg.num+'</span>');
+
+        }
+        $('#requestsWrapper').empty();
+        $.each(msg.requests,function(key,value){
+            if(value.status!='undecided'){
+                $('#requestsWrapper').append('<a class="content" href="javascript:setRead('+value.id+')">' +
+                    '<div class="notification-item-read">' +
+                    '<div class="col-md-12">'+
+                    '<div class="col-md-6">'+
+                    '<h4 class="item-title">'+'friend requests'+' ·  '+value.created_at+' </h4> ' +
+                    '<p class="item-info">'+value.users.first_name+' '+value.users.last_name+'</p> ' +
+                    '</div>' +
+                    '<div class="col-md-6" style="text-align:right"><br>' +
+                    '<span hidden="hidden">value</span>' +
+                    value.status+
+                    '</div>' +
+                    '</div>' +
+                    '</div>'+
+                    ' </a>');
+            }else{
+            $('#requestsWrapper').append('<a class="content" href="#">' +
+                '<div class="notification-item-read">' +
+                '<div class="col-md-12">'+
+                '<div class="col-md-6">'+
+                '<h4 class="item-title">'+'friend requests'+' ·  '+value.created_at+' </h4> ' +
+                '<p class="item-info">'+value.users.first_name+' '+value.users.last_name+'</p> ' +
+                '</div>' +
+                '<div class="col-md-6" style="text-align:right"><br>' +
+                '<span hidden="hidden">'+value.id+'</span>' +
+                '<button class="btn btn-success btn-sm confirmRequest" >confirm</button>&nbsp;' +
+                '<button class="btn btn-default btn-sm declineRequest">decline</button>' +
+                '</div>' +
+                '</div>' +
+                '</div>'+
+                ' </a>');
+             }
+
+        })
+    });
+}
+
+$(document).on('click','.confirmRequest',function(e){
+    $id = $(e.target).prev('span').text();
+    console.log($id);
+    $.ajax({
+        url:'acceptFriend',
+        method:'GET',
+        data:{'id':$id}
+    }).done(function(){
+        refreshRequests();
+    });
+
+});
+
+$(document).on('click','.declineRequest',function(e){
+    $id = $(e.target).prevAll('span').text();
+    console.log($id);
+    $.ajax({
+        url:'declineFriend',
+        method:'GET',
+        data:{'id':$id}
+    }).done(function(){
+        refreshRequests();
+    });
+
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 function setAllRead() {
 
     $.ajax({
@@ -64,7 +149,7 @@ function setAllRead() {
 
 $(document).ready(function(){
 
-   
+
     var loginStatus = false;
     var userName;
     $.ajax({
@@ -81,8 +166,17 @@ $(document).ready(function(){
     $(document).on('click', '#notiDropDown', function (e) {
         e.stopPropagation();
     });
+    $(document).on('click', '#requestsDropDown', function (e) {
+        e.stopPropagation();
+    });
+    $(document).on('click', '#messagesDropDown', function (e) {
+        e.stopPropagation();
+    });
+
+
     refreshNoti();
     setInterval(refreshNoti, 3* 1000);
+    setInterval(refreshRequests, 3* 1000);
 
 
 

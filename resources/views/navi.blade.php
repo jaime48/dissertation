@@ -31,12 +31,33 @@
                 <li>
                     <a href="#" id="questionnaire" onclick="questionnaire()">questionnaire</a>
                 </li>
+                {{--requests--}}
+                <li>
+                    <button class="btn btn-default btn-lg btn-link dropdown-toggle" data-toggle="dropdown" style="font-size:20px;margin-top:8px;margin-left:10px" id="">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </button><span id="requestsIcon"></span>
+                    <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel" id="requestsDropDown" style="width:400px">
+
+                        <div class="notification-heading"><h4 class="menu-title">Friend Request</h4><a href='#' onclick="setAllRead()"><h4 class="menu-title pull-right">Accept All<i class="glyphicon glyphicon-circle-arrow-right"></i></h4></a>
+                        </div>
+                        <li class="divider"></li>
+                        <div class="notifications-wrapper" id='requestsWrapper'>
+
+
+                        </div>
+                        <li class="divider"></li>
+                        <div class="notification-footer"><h4 class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></h4></div>
+                    </ul>
+
+                </li>
+
+                {{--messages--}}
 
                 <li>
-                    <button class="btn btn-default btn-lg btn-link dropdown-toggle" data-toggle="dropdown" style="font-size:20px;margin-top:8px;margin-left:20px" id="">
+                    <button class="btn btn-default btn-lg btn-link dropdown-toggle" data-toggle="dropdown" style="font-size:20px;margin-top:8px;margin-left:10px" id="">
                         <span class="glyphicon glyphicon-comment"></span>
                     </button><span id=""></span>
-                    <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel" id="" style="width:400px">
+                    <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel" id="messagesDropDown" style="width:400px">
 
                         <div class="notification-heading"><h4 class="menu-title">Messages</h4><a href='#' onclick="setAllRead()"><h4 class="menu-title pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></h4></a>
                         </div>
@@ -50,8 +71,11 @@
                     </ul>
 
                 </li>
+
+                {{--notifications--}}
+
                 <li>
-                    <button class="btn btn-default btn-lg btn-link dropdown-toggle" data-toggle="dropdown" style="font-size:20px;margin-top:10px;margin-left:20px" id="notiButton">
+                    <button class="btn btn-default btn-lg btn-link dropdown-toggle" data-toggle="dropdown" style="font-size:20px;margin-top:10px;margin-left:10px" id="notiButton">
                         <span class="glyphicon glyphicon-bell"></span>
                     </button><span id="notiIcon"></span>
                     <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel" id="notiDropDown" style="width:400px">
@@ -138,6 +162,15 @@
 
 <style>
     #badge-notify{
+        background:red;
+        position:relative;
+        top: -0px;
+        left: -25px;
+        width:17px;
+        height:17px;
+        font-size: 11px;
+    }
+    #badge-requests{
         background:red;
         position:relative;
         top: -0px;

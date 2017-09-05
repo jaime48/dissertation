@@ -32,7 +32,8 @@
 <script src="{{asset('js/social/plugins/piexif.js')}}"></script>
 <script src="{{asset('js/social/plugins/sortable.js')}}"></script>
 <script src="{{asset('js/social/home.js')}}"></script>
-
+<link rel="stylesheet" href="{{asset('css/chosen.min.css')}}">
+<script src="{{asset('js/chosen.jquery.min.js')}}"></script>
 <!------------------------------------------------------------>
 <div class="container" style="margin-top:20px;margin-left:300px;min-height:500px;">
     <div class="col-lg-12 col-sm-12 col-md-offset-1">
@@ -82,6 +83,7 @@
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab1">
                     <h2>Personal Info</h2>
+
                     <div class="row">
                         <div class="col-md-8">
                             <table class="table">
@@ -171,13 +173,21 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
+
                 <div class="tab-pane fade in" id="tab2">
 
                     <div class="row">
                         <div class="col-md-6">
                             <table class="table">
                                 <tbody>
-                                @foreach($info->connections as $cons)
+                                @if(!empty($connections))
+                                @foreach($connections as $cons)
                                     <tr>
                                         <th align="right" style="width:30%">
                                             <img alt="" src="{{asset('images/avatar/'.$cons->info->avatar)}}" style=" width: 40px;height: 40px;border-radius: 50%">
@@ -201,18 +211,88 @@
 
                                     </tr>
                                 @endforeach
+@endif
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6" >
+                            <p>Add a friend</p>
+                            <form id="friendsRequest" action="#">
+                                <select multiple id="addFriends" name="addFriends[]" class="selectpicker">
+
+                                </select>
+                                <button type="button" class="btn btn-sm btn-primary" id="addFriendsRequest">send request</button>
+                            </form>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="tab-pane fade in" id="tab3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table">
+                                <tbody>
+                                @if(!empty($connections))
+
+                                    @foreach($groups as $cons)
+                                        <tr>
+
+                                            <td align="left" style="width:30%;font-size: 14px; padding:20px">
+                                                {{$cons->name}}
+
+                                            </td>
+                                            <td align="center" style="width:30%;font-size: 14px; padding:20px" >
+                                                <span hidden="hidden">{{$cons->id}}</span>
+                                                <a class="edit ml10 seeMembers" title="view members">
+                                                    <i class="glyphicon glyphicon-user"></i>
+                                                </a>&nbsp;
+                                                <a class="edit ml10" title="send message">
+                                                    <i class="glyphicon glyphicon-envelope"></i>
+                                                </a>&nbsp;
+                                                <a class="edit ml10 unfriend" title="unfriend">
+                                                    <i class="glyphicon glyphicon-trash"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    @endforeach
+                                    @endif
+
 
 
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-md-6" >
-                            test
+                            <p>Create a group</p>
+                            <form id="createGroupForm" action="createGroup" method="post">
+                            <table>
+                                {{csrf_field()}}
+                                <tr>
+                                    <td>Name</td>
+                                    <td style="padding-bottom:10px"> <input type="text" name="name" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Add member</td>
+                                    <td> <select multiple id="members_id" name="members_id[]" class="selectpicker">
+
+                                        </select>
+                                    </td>
+                                    <td>&nbsp;<button type="submit" class="btn-sm btn-success" id="createGroup" >Create</button></td>
+                                </tr>
+                            </table>
+                            </form>
+
+                            </div>
+
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade in" id="tab3">
-                    <h3>This is tab 3</h3>
                 </div>
             </div>
         </div>
@@ -273,6 +353,51 @@
 
         </div>
 
+    </div>
+</div>
+
+<div id="MemberInfoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <form name="editMember" action='team.editMemberInfo' method="POST">
+            <div class="modal-content">
+                {{csrf_field()}}
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">
+                        <i class="glyphicon glyphicon-user"></i> Group Members
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+                    <div id="dynamic-content"> <!-- mysql data will load in table -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="table-responsive">
+
+                                    <table class="table table-striped table-bordered">
+                                        <ul class="list-group-members" style="list-style-type: none">
+
+                                        </ul>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" aria-hidden="true">submit</button>
+                </div>
+
+            </div>
+        </form>
     </div>
 </div>
 <style>
@@ -370,9 +495,6 @@
 
         var name = $(e.target).prevAll('div').find('input').attr('name');
         var value = $(e.target).prevAll('div').find('input').val();
-
-        //$data[$name] = $value;
-
         $.ajax({
             method:'GET',
             url:'social.editInfo',
@@ -385,6 +507,73 @@
             }
         });
     });
+
+
+    $.ajax({
+        method:'GET',
+        url:'addableFriends'
+    }).done(function(msg){
+
+        $.each(msg, function(key, value) {
+            $('#addFriends').append(new Option(value.first_name+' '+value.last_name, value.id));
+        });
+        $('#addFriends').chosen({width:"50%"});
+    });
+
+    $.ajax({
+        method:'GET',
+        url:'getFriends'
+    }).done(function(msg){
+        $.each(msg, function(key, value) {
+            $('#members_id').append(new Option(value.users.first_name+' '+value.users.last_name, value.users.id));
+        });
+        $('#members_id').chosen({width:"100%"});
+    });
+
+    $(document).on('click','#addFriendsRequest',function(){
+        var arr=[];
+        $.each($('#friendsRequest').serializeArray(),function(key,value){
+            arr.push({'to_id':value.value});
+        });
+        if(arr.length==0){return}
+        $.ajax({
+            url:'friendsRequest',
+            method:'GET',
+            data:{'ids':arr}
+
+        }).done(function(msg){
+
+        });
+
+
+    });
+
+$(document).on('click','.seeMembers',function(e){
+    $group_id = $(e.target).parent().prev('span').text();
+    $.ajax({
+        url:'getGroupMembers',
+        method:'GET',
+        data:{'group_id':$group_id}
+    }).done(function(data){
+        $path = '{{asset('images/avatar/')}}';
+        console.log(data);
+        $('.list-group-members').empty();
+        $.each(data,function(key,value){
+            $('.list-group-members').append(
+                    '<li class=list-group-item">'+
+                    '<div class="col-md-12" ><div class="col-md-2" >' +
+                    '<img alt="" src="'+$path+'/'+value.info.avatar+'" style=" width: 40px;height: 40px;border-radius: 50%"></div>' +
+                    '<div class="col-md-4" style="padding:10px" >'+value.first_name+' '+value.last_name+'</div>' +
+                    '</div> ' +
+                    '</li>'
+            );
+        });
+
+    });
+    $('#MemberInfoModal').modal('show');
+});
+
+
 </script>
 
 

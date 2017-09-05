@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\connections;
 use Illuminate\Http\Request;
 
 class infoController extends Controller
@@ -9,16 +10,16 @@ class infoController extends Controller
 
 
     public function showInfo(Request $request) {
-        $info = \App\info::with('user')
-            ->with(['connections' => function ($query) {
-                $query->with('users')->with('info');
-            }])
-            ->where('user_id','=',$request->user()->id)->first();
+        $info = \App\info::with('user')->where('user_id','=',$request->user()->id)->first();
+        $connections = \App\connections::with('users')->where('user_id','=',$request->user()->id)->get();
         $name = $request->user()->first_name.' '.$request->user()->last_name;
+        $groups = \App\groups::where('creator_id','=',$request->user()->id)->get();
+        $data = [$info,$connections,$groups];
         if($info){
-            return view('social.home')->with(['info' =>$info]);
+            return view('social.home')->with(['info' =>$info,'connections'=>$connections,'groups'=>$groups]);
         }else{
-            return view('social.home')->with(['info' =>(object)['phone'=>'','bio'=>'','address'=>'','email'=>'','hobby'=>'','user_name'=>$name,'avatar'=>'']]);
+            return view('social.home')->with(['info' =>
+                (object)['phone'=>'','bio'=>'','address'=>'','email'=>'','hobby'=>'','user_name'=>$name,'avatar'=>'','connections'=>'']]);
         }
     }
 
@@ -62,6 +63,12 @@ class infoController extends Controller
             return view('social.seeProfile')->with(['info' =>(object)['phone'=>'','bio'=>'','address'=>'','email'=>'','hobby'=>'','user_name'=>$name,'avatar'=>'']]);
         }
 
+    }
+
+    public function getFriends(Request $request) {
+        $info = \App\connections::where('user_id','=',$request->user()->id)
+            ->with('users')->get();
+        return $info;
     }
 
 
