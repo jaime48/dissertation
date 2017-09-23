@@ -12,6 +12,6 @@ class connections extends Model
     }
 
     public function info() {
-        return $this->hasOne('\App\info','user_id','user_id');
+        return $this->hasOne('\App\info','user_id','connection_id');
     }
 }

@@ -20,5 +20,15 @@ class connectionsController extends Controller
         return $users;
     }
 
+    public function addableFriendsForGroup(Request $request) {
+        $currentGroupMembers = unserialize(\App\groups::find($request->group_id)->members_id);
+        $current = \App\connections::where('user_id','=',$request->user()->id)
+            ->whereNotIn('connection_id',$currentGroupMembers)
+            ->with('users')
+            ->get();
+
+        return $current;
+    }
+
 
 }

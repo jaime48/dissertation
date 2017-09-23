@@ -258,6 +258,8 @@ Route::any('unfriend','connectionsController@unfriend');
 
 Route::any('addableFriends','connectionsController@addableFriends');
 
+Route::any('addableFriendsForGroup','connectionsController@addableFriendsForGroup');
+
 Route::any('friendsRequest','requestsController@friendsRequest');
 
 Route::any('acceptFriend','requestsController@acceptFriend');
@@ -268,7 +270,19 @@ Route::any('createGroup','groupsController@createGroup');
 
 Route::any('getGroupMembers','groupsController@getGroupMembers');
 
+Route::any('deleteGroup','groupsController@deleteGroup');
 
+Route::any('leaveGroup','groupsController@leaveGroup');
+
+Route::any('confirmAddMembers','groupsController@confirmAddMembers');
+
+Route::any('getMessages','messagesController@getMessages');
+
+Route::any('sendMessage','messagesController@sendMessage');
+
+Route::any('getGroupMsg','messagesController@getGroupMsg');
+
+Route::any('sendGroupMessage','messagesController@sendGroupMessage');
 
 Route::any('/test1',function(){
     return view('test1');

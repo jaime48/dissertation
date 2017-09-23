@@ -17,6 +17,7 @@ class teamsController extends Controller
         $leagueId = \App\league::where('manager_id', '=', $userInfo->id)->first()->id;
         $teamsInfo = teams::where('league_id', '=', $leagueId)->get();
         return view('league/teams')->with(['teamsInfo' => $teamsInfo->toArray()]);
+
     }
 
     /**
@@ -153,7 +154,6 @@ class teamsController extends Controller
         $team->logo              = $request->file('logo')->getClientOriginalName();
         $team->remarks           = $request->remarks;
         $team->save();
-
         \App\notifications::addNotification($userId,'Sysytem message','you have created a team');
         return redirect()->route('team.team');
     }

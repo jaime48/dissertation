@@ -66,10 +66,9 @@ $(document).ready(function(){
                 $(e.target).next('span').text($num+1);
             }
         });
-    })
+    });
 
     $(document).on('click','#seeProfile',function(event) {
-
         $friend_id = $(event.target).parent().parent().prevAll("a").find("span").text();
         console.log($friend_id);
         window.location = '/seeProfile?friend_id=' + $friend_id;

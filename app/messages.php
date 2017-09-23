@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class groups extends Model
+class messages extends Model
 {
     //
-    public $fillable = ['members_id'];
 }

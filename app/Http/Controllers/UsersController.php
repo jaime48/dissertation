@@ -42,6 +42,7 @@ class usersController extends Controller
      * verify duplicated email address
      */
     public function verifyEmail(Request $request){
+       
         $users = new users();
         if($users::where('email','=',$request->email)->first()){
             return 1;
@@ -94,9 +95,8 @@ class usersController extends Controller
             $generatePassword =  new generateRandomPassword();
             $password = $generatePassword->generate();
             Mail::to($request->email)->send(new ChangePassword($password));
+
             return $password;
-
-
     }
 
     /**

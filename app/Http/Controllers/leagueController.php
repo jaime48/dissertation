@@ -37,6 +37,7 @@ class leagueController extends Controller
     public function downLoadFile(Request $request,$file){
         $userId = $request->user()->id;
         return response()->download(storage_path().'/app/fileToUpload/'.$userId.'/'.$file);
+        
     }
 
     /**
